@@ -19,6 +19,9 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.MESETA.get());
                         output.accept(ModItems.PHOTON_DROP.get());
+                        output.accept(ModItems.ITEM_DROP.get());
+                        output.accept(ModItems.WEAPON_DROP.get());
+                        output.accept(ModItems.ARMOR_DROP.get());
                     })
                     .build());
 

@@ -1,5 +1,8 @@
 {
   "item.phantasystar.photon_drop": "Photon Drop",
+  "item.phantasystar.item_drop": "Item Drop",
+  "item.phantasystar.weapon_drop": "Weapon Drop",
+  "item.phantasystar.armor_drop": "Armor Drop",
   "item.phantasystar.meseta": "Meseta",
   "creativetab.phantasy_star_tab": "Phantasy Star Online"
 }

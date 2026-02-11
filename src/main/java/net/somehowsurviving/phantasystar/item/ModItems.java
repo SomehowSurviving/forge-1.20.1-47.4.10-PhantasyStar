@@ -14,6 +14,15 @@ public class ModItems {
     public static final RegistryObject<Item> PHOTON_DROP = ITEMS.register("photon_drop",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> ITEM_DROP = ITEMS.register("item_drop",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> WEAPON_DROP = ITEMS.register("weapon_drop",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> ARMOR_DROP = ITEMS.register("armor_drop",
+            () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> MESETA = ITEMS.register("meseta",
             () -> new Item(new Item.Properties()));
 

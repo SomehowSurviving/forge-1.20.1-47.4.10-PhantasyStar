@@ -61,6 +61,9 @@ public class PhantasyStar {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.PHOTON_DROP);
+            event.accept(ModItems.ITEM_DROP);
+            event.accept(ModItems.WEAPON_DROP);
+            event.accept(ModItems.ARMOR_DROP);
             event.accept(ModItems.MESETA);
         }
     }
