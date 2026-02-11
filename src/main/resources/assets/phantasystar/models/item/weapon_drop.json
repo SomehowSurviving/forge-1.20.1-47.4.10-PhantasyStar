@@ -2,8 +2,8 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "phantasystar:item/photon_drop",
-		"particle": "phantasystar:item/photon_drop"
+		"0": "phantasystar:item/weapon_drop",
+		"particle": "phantasystar:item/weapon_drop"
 	},
 	"elements": [
 		{
