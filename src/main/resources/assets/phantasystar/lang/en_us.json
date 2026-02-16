@@ -4,5 +4,13 @@
   "item.phantasystar.weapon_drop": "Weapon Drop",
   "item.phantasystar.armor_drop": "Armor Drop",
   "item.phantasystar.meseta": "Meseta",
+  "item.phantasystar.monomate": "Monomate",
+  "item.phantasystar.dimate": "Dimate",
+  "item.phantasystar.trimate": "Trimate",
+  "block.phantasystar.mines_hex_floor": "Mines Hex Floor",
+  "block.phantasystar.mines_oct_floor": "Mines Octagon Floor",
+  "block.phantasystar.forest_box_normal": "Forest Box Normal",
+  "block.phantasystar.photon_crystal": "Photon Crystal",
+  "block.phantasystar.photon_crystal_ore": "Photon Crystal Ore",
   "creativetab.phantasy_star_tab": "Phantasy Star Online"
 }

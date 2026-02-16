@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+      "###",
+      "###",
+      "###"
+  ],
+  "key": {
+    "#": {
+      "item": "phantasystar:meseta"
+    }
+  },
+  "result": {
+    "item": "phantasystar:photon_drop"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "phantasystar:block/mines_oct_floor", "y": 0 },
+    "facing=south": { "model": "phantasystar:block/mines_oct_floor", "y": 180 },
+    "facing=west":  { "model": "phantasystar:block/mines_oct_floor", "y": 270 },
+    "facing=east":  { "model": "phantasystar:block/mines_oct_floor", "y": 90 }
+  }
+}

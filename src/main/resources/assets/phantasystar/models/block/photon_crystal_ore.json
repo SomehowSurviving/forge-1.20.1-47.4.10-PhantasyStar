@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"all": "phantasystar:block/photon_crystal_ore"
+	}
+}

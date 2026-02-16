@@ -17,6 +17,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.somehowsurviving.phantasystar.Config;
+import net.somehowsurviving.phantasystar.block.ModBlocks;
 import net.somehowsurviving.phantasystar.item.ModCreativeModeTabs;
 import net.somehowsurviving.phantasystar.item.ModItems;
 import org.slf4j.Logger;
@@ -35,6 +36,7 @@ public class PhantasyStar {
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -59,13 +61,7 @@ public class PhantasyStar {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.PHOTON_DROP);
-            event.accept(ModItems.ITEM_DROP);
-            event.accept(ModItems.WEAPON_DROP);
-            event.accept(ModItems.ARMOR_DROP);
-            event.accept(ModItems.MESETA);
-        }
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -80,7 +76,7 @@ public class PhantasyStar {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
+            LOGGER.info("HELLO FROM PIONEER 2");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }
