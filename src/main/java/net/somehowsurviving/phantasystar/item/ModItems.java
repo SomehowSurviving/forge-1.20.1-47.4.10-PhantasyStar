@@ -1,6 +1,7 @@
 package net.somehowsurviving.phantasystar.item;
 
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -8,6 +9,8 @@ import net.minecraftforge.registries.RegistryObject;
 import net.somehowsurviving.phantasystar.PhantasyStar;
 import net.somehowsurviving.phantasystar.item.custom.MateItem;
 import net.somehowsurviving.phantasystar.item.custom.MetalDetectorItem;
+import net.somehowsurviving.phantasystar.item.custom.ModWeapon;
+import net.somehowsurviving.phantasystar.item.custom.Musashi;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -42,6 +45,14 @@ public class ModItems {
 
     public static final RegistryObject<Item> METAL_DETECTOR = ITEMS.register("metal_detector",
             () -> new MetalDetectorItem(new Item.Properties().durability(100)));
+    // Weapons
+    public static final RegistryObject<Item> FLOWEN_SWORD_REPLICA = ITEMS.register("flowen_sword_replica",
+            () -> new ModWeapon(Tiers.DIAMOND, 10, -2.8f, new Item.Properties()));
+
+
+    //Gecko
+    public static final RegistryObject<Item> MUSASHI = ITEMS.register("musashi",
+            () -> new Musashi(Tiers.IRON, 7, -2.0f, new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

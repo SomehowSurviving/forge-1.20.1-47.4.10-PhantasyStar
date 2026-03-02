@@ -27,6 +27,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DIMATE.get());
                         output.accept(ModItems.TRIMATE.get());
                         output.accept(ModItems.METAL_DETECTOR.get());
+                        output.accept(ModItems.MUSASHI.get());
+                        output.accept(ModItems.FLOWEN_SWORD_REPLICA.get());
 
                         output.accept(ModBlocks.PHOTON_CRYSTAL.get());
                         output.accept(ModBlocks.PHOTON_CRYSTAL_ORE.get());
