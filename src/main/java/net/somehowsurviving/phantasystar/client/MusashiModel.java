@@ -8,7 +8,7 @@ import software.bernie.geckolib.model.GeoModel;
 public class MusashiModel extends GeoModel<Musashi> {
     @Override
     public ResourceLocation getModelResource(Musashi animatable) {
-        return new ResourceLocation(PhantasyStar.MOD_ID, "geo/musashi.geo.json");
+        return new ResourceLocation(PhantasyStar.MOD_ID, "geo/item/musashi.geo.json");
     }
 
     @Override

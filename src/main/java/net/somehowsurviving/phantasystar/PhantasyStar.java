@@ -16,11 +16,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.somehowsurviving.phantasystar.Config;
 import net.somehowsurviving.phantasystar.block.ModBlocks;
+import net.somehowsurviving.phantasystar.client.MagCurioRenderer;
 import net.somehowsurviving.phantasystar.item.ModCreativeModeTabs;
 import net.somehowsurviving.phantasystar.item.ModItems;
+import net.somehowsurviving.phantasystar.item.custom.BaseMag;
 import org.slf4j.Logger;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(PhantasyStar.MOD_ID)
@@ -49,6 +51,7 @@ public class PhantasyStar {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
+
         LOGGER.info("HELLO FROM COMMON SETUP");
 
         if (Config.logDirtBlock)
@@ -75,7 +78,9 @@ public class PhantasyStar {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            // Some client setup code
+
+            CuriosRendererRegistry.register(ModItems.BASE_MAG.get(), () -> new MagCurioRenderer(1.0f, 0.0f, 0.75f));
+
             LOGGER.info("HELLO FROM PIONEER 2");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }

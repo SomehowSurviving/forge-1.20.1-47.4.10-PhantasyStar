@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "entities": [
+    "minecraft:player",
+    "minecraft:armor_stand"
+  ],
+  "slots": ["mag", "head", "back"]
+}

@@ -7,10 +7,12 @@
   "item.phantasystar.monomate": "Monomate",
   "item.phantasystar.dimate": "Dimate",
   "item.phantasystar.trimate": "Trimate",
+  "item.phantasystar.base_mag": "Mag",
   "block.phantasystar.mines_hex_floor": "Mines Hex Floor",
   "block.phantasystar.mines_oct_floor": "Mines Octagon Floor",
   "block.phantasystar.forest_box_normal": "Forest Box Normal",
   "block.phantasystar.photon_crystal": "Photon Crystal",
   "block.phantasystar.photon_crystal_ore": "Photon Crystal Ore",
-  "creativetab.phantasy_star_tab": "Phantasy Star Online"
+  "creativetab.phantasy_star_tab": "Phantasy Star Online",
+  "curios.identifier.mag": "Mag Slot"
 }
