@@ -2,7 +2,6 @@ package net.somehowsurviving.phantasystar;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -17,10 +16,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.somehowsurviving.phantasystar.block.ModBlocks;
-import net.somehowsurviving.phantasystar.client.MagCurioRenderer;
+import net.somehowsurviving.phantasystar.client.MagItemCurioRenderer;
 import net.somehowsurviving.phantasystar.item.ModCreativeModeTabs;
 import net.somehowsurviving.phantasystar.item.ModItems;
-import net.somehowsurviving.phantasystar.item.custom.BaseMag;
+import net.somehowsurviving.phantasystar.sound.ModSounds;
 import org.slf4j.Logger;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
@@ -39,6 +38,8 @@ public class PhantasyStar {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModSounds.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -79,7 +80,13 @@ public class PhantasyStar {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
-            CuriosRendererRegistry.register(ModItems.BASE_MAG.get(), () -> new MagCurioRenderer(1.0f, 0.0f, 0.75f));
+            CuriosRendererRegistry.register(ModItems.BASE_MAG.get(), () -> new MagItemCurioRenderer(1.0f, 0.1f, 0.75f, 0.4f, 0.4f, 0.4f, 180f, 180f));
+            CuriosRendererRegistry.register(ModItems.VARUNA_MAG.get(), () -> new MagItemCurioRenderer(1.0f, 0.1f, 0.75f, 0.4f, 0.4f, 0.4f, 180f, 180f));
+            CuriosRendererRegistry.register(ModItems.KALKI_MAG.get(), () -> new MagItemCurioRenderer(0.0f, -0.1f, 0.5f, 0.7f, 0.7f, 0.7f, 180f, 180f));
+            CuriosRendererRegistry.register(ModItems.VRITRA_MAG.get(), () -> new MagItemCurioRenderer(1.0f, -0.2f, 0.75f, 0.4f, 0.4f, 0.4f, 180f, 180f));
+            CuriosRendererRegistry.register(ModItems.RUDRA_MAG.get(), () -> new MagItemCurioRenderer(0.0f, 0.2f, 0.6f, 1.0f, 1.0f, 1.0f, 180f, 180f));
+            CuriosRendererRegistry.register(ModItems.MITRA_MAG.get(), () -> new MagItemCurioRenderer(0.8f, 0.2f, 0.75f, 0.5f, 0.5f, 0.5f, 180f, 160f));
+            CuriosRendererRegistry.register(ModItems.VARAHA_MAG.get(), () -> new MagItemCurioRenderer(0.0f, 0.3f, 0.4f, 0.8f, 1.0f, 0.4f, 180f, 180f));
 
             LOGGER.info("HELLO FROM PIONEER 2");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());

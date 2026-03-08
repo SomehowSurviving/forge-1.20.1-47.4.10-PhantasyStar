@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "phantasystar:base_mag",
+    "phantasystar:varuna",
+    "phantasystar:kalki",
+    "phantasystar:vritra",
+    "phantasystar:rudra",
+    "phantasystar:mitra",
+    "phantasystar:varaha"
+  ]
+}

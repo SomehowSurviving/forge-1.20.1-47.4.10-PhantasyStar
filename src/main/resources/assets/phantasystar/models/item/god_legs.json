@@ -1,0 +1,53 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "phantasystar:item/photon_drop",
+		"particle": "phantasystar:item/photon_drop"
+	},
+	"elements": [
+		{
+			"from": [4, 1.1, 5.5],
+			"to": [12, 6.1, 10.5],
+			"rotation": {"angle": 45, "axis": "x", "origin": [8, 3.6, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 5], "texture": "#0"},
+				"east": {"uv": [0, 10, 5, 15], "texture": "#0"},
+				"south": {"uv": [0, 5, 8, 10], "texture": "#0"},
+				"west": {"uv": [5, 10, 10, 15], "texture": "#0"},
+				"up": {"uv": [16, 5, 8, 0], "texture": "#0"},
+				"down": {"uv": [16, 5, 8, 10], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 6.25, 0]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 6.25, 0]
+		},
+		"firstperson_righthand": {
+			"rotation": [-180, 45, -180],
+			"translation": [-0.25, 5.5, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-180, 45, -180],
+			"translation": [-0.25, 5.5, 0]
+		},
+		"ground": {
+			"translation": [0, 4.25, 0]
+		},
+		"gui": {
+			"rotation": [13.55, 30.39, 18.66],
+			"translation": [-1.75, 5.25, 0],
+			"scale": [1.4, 1.4, 1.4]
+		},
+		"head": {
+			"translation": [0, 14.25, -1.5]
+		},
+		"fixed": {
+			"translation": [0, 4.75, 0]
+		}
+	}
+}

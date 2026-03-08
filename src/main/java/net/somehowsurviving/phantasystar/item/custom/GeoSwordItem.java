@@ -1,40 +1,40 @@
 package net.somehowsurviving.phantasystar.item.custom;
 
-
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import net.somehowsurviving.phantasystar.client.BaseMagRenderer;
+import net.somehowsurviving.phantasystar.client.GeoSwordRenderer;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.RenderUtils;
-import top.theillusivec4.curios.api.SlotContext;
-import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
+import java.util.List;
 import java.util.function.Consumer;
 
-public class BaseMag extends Item implements GeoItem, ICurioItem {
-
+public class GeoSwordItem extends SwordItem implements GeoItem {
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
-    public BaseMag(Properties properties) {
-        super(new Item.Properties().stacksTo(1).defaultDurability(0));
+    public GeoSwordItem(Tier tier, int attackDamage, float attackSpeed, Properties properties) {
+        super(tier, attackDamage, attackSpeed, properties);
     }
 
     @Override
-    public void curioTick(SlotContext slotContext, ItemStack stack) {
-        // ticking logic here
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<net.minecraft.network.chat.Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
 
+        String key = pStack.getItem().getDescriptionId();
+        pTooltipComponents.add(Component.translatable(key + ".tooltip"));
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 
-
-    // Geckolib Animatable
     private PlayState predicate(AnimationState animationState) {
         animationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
@@ -58,12 +58,12 @@ public class BaseMag extends Item implements GeoItem, ICurioItem {
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-            private BaseMagRenderer renderer;
+            private GeoSwordRenderer renderer;
 
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
                 if(this.renderer == null) {
-                    renderer = new BaseMagRenderer();
+                    renderer = new GeoSwordRenderer();
                 }
 
                 return this.renderer;

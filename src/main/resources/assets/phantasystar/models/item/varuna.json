@@ -1,0 +1,95 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        67.5,
+        0,
+        0
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        67.5,
+        0,
+        0
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        174.25,
+        33.5,
+        -180
+      ],
+      "translation": [
+        0,
+        2.75,
+        0
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        174.25,
+        33.5,
+        -180
+      ],
+      "translation": [
+        0,
+        2.75,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        -151.5,
+        45.25,
+        -180
+      ],
+      "translation": [
+        0,
+        -4,
+        0
+      ],
+      "scale": [
+        2.2,
+        2.2,
+        2.2
+      ]
+    },
+    "head": {
+      "translation": [
+        -11,
+        -3.25,
+        9
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "fixed": {
+      "scale": [
+        3,
+        3,
+        3
+      ]
+    },
+    "on_shelf": {
+      "rotation": [
+        -180,
+        0,
+        -180
+      ],
+      "scale": [
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "textures": {
+    "particle": "phantasystar:item/varuna"
+  }
+}

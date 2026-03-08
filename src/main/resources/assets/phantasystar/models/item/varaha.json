@@ -1,0 +1,68 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    32,
+    32
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        67.5,
+        0,
+        0
+      ],
+      "scale": [
+        0.78,
+        1,
+        1
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        67.5,
+        0,
+        0
+      ],
+      "scale": [
+        0.78,
+        1,
+        1
+      ]
+    },
+    "gui": {
+      "rotation": [
+        -180,
+        55.75,
+        -180
+      ],
+      "translation": [
+        -0.75,
+        -5.25,
+        0
+      ]
+    },
+    "head": {
+      "translation": [
+        0.25,
+        -19.5,
+        10.5
+      ],
+      "scale": [
+        1.31,
+        1.67,
+        1.5
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        -4.5,
+        0
+      ]
+    }
+  },
+  "textures": {
+    "particle": "phantasystar:item/varaha"
+  }
+}

@@ -14,6 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.somehowsurviving.phantasystar.PhantasyStar;
 import net.somehowsurviving.phantasystar.block.custom.HorizPatternBlock;
+import net.somehowsurviving.phantasystar.block.custom.SoundBlock;
 import net.somehowsurviving.phantasystar.item.ModItems;
 
 import java.util.function.Supplier;
@@ -33,6 +34,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> PHOTON_CRYSTAL = registerBlock("photon_crystal",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER)));
+
+    public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
+            () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     public static final RegistryObject<Block> PHOTON_CRYSTAL_ORE = registerBlock("photon_crystal_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)

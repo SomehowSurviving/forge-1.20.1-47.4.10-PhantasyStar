@@ -1,0 +1,105 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        67.5,
+        180,
+        0
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        67.5,
+        -180,
+        0
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -55,
+        0
+      ],
+      "translation": [
+        0,
+        2.75,
+        0
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        -55,
+        0
+      ],
+      "translation": [
+        0,
+        2.75,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        31.17,
+        -45.24,
+        0
+      ],
+      "translation": [
+        -2.25,
+        -6.75,
+        0
+      ],
+      "scale": [
+        2.2,
+        2.2,
+        2.2
+      ]
+    },
+    "head": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        -11,
+        -3.25,
+        9
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        -5.75,
+        -3
+      ],
+      "scale": [
+        3,
+        3,
+        3
+      ]
+    },
+    "on_shelf": {
+      "scale": [
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "textures": {
+    "particle": "phantasystar:item/vritra"
+  }
+}

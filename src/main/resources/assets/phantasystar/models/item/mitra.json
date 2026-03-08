@@ -1,0 +1,137 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        67.5,
+        0,
+        0
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        67.5,
+        0,
+        0
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        -168.09000000000015,
+        32.789999999999964,
+        175.5999999999999
+      ],
+      "translation": [
+        0,
+        0.5,
+        -3
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        -168.09000000000015,
+        32.789999999999964,
+        175.5999999999999
+      ],
+      "translation": [
+        0,
+        0.5,
+        -3
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        -1.5,
+        0
+      ],
+      "scale": [
+        2,
+        2,
+        2
+      ]
+    },
+    "gui": {
+      "rotation": [
+        -21.84999999999991,
+        25.170000000000073,
+        30.670000000000073
+      ],
+      "translation": [
+        3.5,
+        -6,
+        0
+      ],
+      "scale": [
+        1.8,
+        1.8,
+        1.8
+      ]
+    },
+    "head": {
+      "rotation": [
+        -3.9200000000000728,
+        -9.789999999999964,
+        -2.1100000000001273
+      ],
+      "translation": [
+        -11,
+        -16.75,
+        12.75
+      ],
+      "scale": [
+        2.5,
+        2.5,
+        2.5
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        -7,
+        0
+      ],
+      "scale": [
+        2.2,
+        2.2,
+        2.2
+      ]
+    },
+    "on_shelf": {
+      "rotation": [
+        -180,
+        0,
+        -180
+      ],
+      "scale": [
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "textures": {
+    "particle": "phantasystar:item/mitra"
+  }
+}

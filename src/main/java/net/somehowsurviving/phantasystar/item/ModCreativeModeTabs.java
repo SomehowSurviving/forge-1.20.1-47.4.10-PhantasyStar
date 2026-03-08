@@ -18,6 +18,7 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CREATIVE_TAB.get()))
                     .title(Component.translatable("creativetab.phantasy_star_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
+                        // Items
                         output.accept(ModItems.MESETA.get());
                         output.accept(ModItems.PHOTON_DROP.get());
                         output.accept(ModItems.ITEM_DROP.get());
@@ -26,15 +27,56 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MONOMATE.get());
                         output.accept(ModItems.DIMATE.get());
                         output.accept(ModItems.TRIMATE.get());
+                        // Units
+                        output.accept(ModItems.WARRIOR_BODY.get());
+                        output.accept(ModItems.GENERAL_BODY.get());
+                        output.accept(ModItems.METAL_BODY.get());
+                        output.accept(ModItems.GOD_BODY.get());
+                        output.accept(ModItems.HEAVENLY_BODY.get());
+                        output.accept(ModItems.DIGGER_HP.get());
+                        output.accept(ModItems.GENERAL_HP.get());
+                        output.accept(ModItems.DRAGON_HP.get());
+                        output.accept(ModItems.GOD_HP.get());
+                        output.accept(ModItems.HEAVENLY_HP.get());
+                        output.accept(ModItems.KNIGHT_POWER.get());
+                        output.accept(ModItems.GENERAL_POWER.get());
+                        output.accept(ModItems.OGRE_POWER.get());
+                        output.accept(ModItems.GOD_POWER.get());
+                        output.accept(ModItems.HEAVENLY_POWER.get());
+                        output.accept(ModItems.THIEF_LEGS.get());
+                        output.accept(ModItems.GENERAL_LEGS.get());
+                        output.accept(ModItems.ELF_LEGS.get());
+                        output.accept(ModItems.GOD_LEGS.get());
+                        output.accept(ModItems.HEAVENLY_LEGS.get());
+                        output.accept(ModItems.All_RESIST.get());
+                        output.accept(ModItems.SUPER_RESIST.get());
+                        output.accept(ModItems.PERFECT_RESIST.get());
+                        output.accept(ModItems.HEAVENLY_RESIST.get());
+                        output.accept(ModItems.GENERAL_BATTLE.get());
+                        output.accept(ModItems.DEVIL_BATTLE.get());
+                        output.accept(ModItems.GOD_BATTLE.get());
+                        output.accept(ModItems.HEAVENLY_BATTLE.get());
+                        output.accept(ModItems.V101.get());
+                        output.accept(ModItems.SWORD_SAINT.get());
+                        // Mags
                         output.accept(ModItems.BASE_MAG.get());
+                        output.accept(ModItems.VARUNA_MAG.get());
+                        output.accept(ModItems.KALKI_MAG.get());
+                        output.accept(ModItems.VRITRA_MAG.get());
+                        output.accept(ModItems.RUDRA_MAG.get());
+                        output.accept(ModItems.MITRA_MAG.get());
+                        output.accept(ModItems.VARAHA_MAG.get());
+                        // Weapons
                         output.accept(ModItems.MUSASHI.get());
+                        output.accept(ModItems.YAMATO.get());
                         output.accept(ModItems.FLOWEN_SWORD_REPLICA.get());
-
+                        // Blocks
                         output.accept(ModBlocks.PHOTON_CRYSTAL.get());
                         output.accept(ModBlocks.PHOTON_CRYSTAL_ORE.get());
                         output.accept(ModBlocks.FOREST_BOX_NORMAL.get());
                         output.accept(ModBlocks.MINES_HEX_FLOOR.get());
                         output.accept(ModBlocks.MINES_OCT_FLOOR.get());
+                        output.accept(ModBlocks.SOUND_BLOCK.get());
                     })
                     .build());
 

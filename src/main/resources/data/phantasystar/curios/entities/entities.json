@@ -4,5 +4,5 @@
     "minecraft:player",
     "minecraft:armor_stand"
   ],
-  "slots": ["mag", "head", "back"]
+  "slots": ["head", "charm"]
 }
