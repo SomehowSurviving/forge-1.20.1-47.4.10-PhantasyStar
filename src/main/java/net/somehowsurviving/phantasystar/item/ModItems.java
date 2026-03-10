@@ -93,12 +93,40 @@ public class ModItems {
             () -> new BattleUnitItem(new Item.Properties().stacksTo(1), 0.12F));
     public static final RegistryObject<Item> V101 = ITEMS.register("v101",
             () -> new V101UnitItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> ADEPT = ITEMS.register("adept",
+            () -> new AdeptUnitItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> SWORD_SAINT = ITEMS.register("proof_of_sword_saint",
             () -> new SwordSaintUnitItem(new Item.Properties().stacksTo(1)));
+    // Transforming Units
+    public static final RegistryObject<Item> LIMITER = ITEMS.register("poss_limiter",
+            () -> new KillCountTransformItem(new Item.Properties().stacksTo(1), -4.0f,  -0.1f, -0.05f, -4.0f, 0.0f, 0.0f, ModItems.ADEPT, 1000));
+    public static final RegistryObject<Item> SWORDSMAN_LORE = ITEMS.register("swordsman_lore",
+            () -> new KillCountTransformItem(new Item.Properties().stacksTo(1), 0.0f,  0.1f, 0.05f, 0.0f, 0.0f, 0.0f, ModItems.SWORD_SAINT, 1000));
 
     // Weapons
     public static final RegistryObject<Item> FLOWEN_SWORD_REPLICA = ITEMS.register("flowen_sword_replica",
-            () -> new ModWeapon(Tiers.DIAMOND, 3, -2.8f, new Item.Properties()));
+            () -> new ModWeapon(Tiers.DIAMOND, 7, -2.2f, new Item.Properties(), 0.0f));
+    public static final RegistryObject<Item> GUREN = ITEMS.register("guren",
+            () -> new ModWeapon(Tiers.NETHERITE, 11, -2.2f, new Item.Properties(), 0.2f));
+    public static final RegistryObject<Item> SHOUREN = ITEMS.register("shouren",
+            () -> new ModWeapon(Tiers.NETHERITE, 11, -2.2f, new Item.Properties(), 0.2f));
+    public static final RegistryObject<Item> JIZAI_GUREN = ITEMS.register("jizai_guren",
+            () -> new ModWeapon(Tiers.NETHERITE, 12, -2.2f, new Item.Properties(), 0.1f));
+    public static final RegistryObject<Item> JIZAI_SHOUREN = ITEMS.register("jizai_shouren",
+            () -> new ModWeapon(Tiers.NETHERITE, 12, -2.2f, new Item.Properties(), 0.1f));
+    // Gecko Weapons
+    public static final RegistryObject<Item> DB_SABER = ITEMS.register("db_saber",
+            () -> new GeoSwordItem(Tiers.IRON, 3, -2.2f, new Item.Properties(), 0.0f));
+    public static final RegistryObject<Item> MUSASHI = ITEMS.register("musashi",
+            () -> new GeoSwordItem(Tiers.IRON, 6, -2.2f, new Item.Properties(), 0.2f));
+    public static final RegistryObject<Item> YAMATO = ITEMS.register("yamato",
+            () -> new GeoSwordItem(Tiers.DIAMOND, 7, -2.2f, new Item.Properties(), 0.2f));
+    public static final RegistryObject<Item> ASUKA = ITEMS.register("asuka",
+            () -> new GeoSwordItem(Tiers.NETHERITE, 9, -2.2f, new Item.Properties(), 0.2f));
+    // Special Weapon Containers
+    public static final RegistryObject<Item> JIZAI_CONTAINER = ITEMS.register("jizai_container",
+            () -> new WeaponCraftContainerItem(ModItems.JIZAI_GUREN, ModItems.JIZAI_SHOUREN,
+                    new Item.Properties().stacksTo(1)));
 
     // Mags
     public static final RegistryObject<Item> BASE_MAG = ITEMS.register("base_mag",
@@ -115,12 +143,6 @@ public class ModItems {
             () -> new MagItem(new Item.Properties(), 1.0f, 0.15f, 3.0f, 0.0f, 0.0f));
     public static final RegistryObject<Item> VARAHA_MAG = ITEMS.register("varaha",
             () -> new MagItem(new Item.Properties(), 4.0f, 0.15f, 4.0f, 0.0f, 0.0f));
-
-    // Gecko
-    public static final RegistryObject<Item> MUSASHI = ITEMS.register("musashi",
-            () -> new GeoSwordItem(Tiers.IRON, 3, -2.2f, new Item.Properties()));
-    public static final RegistryObject<Item> YAMATO = ITEMS.register("yamato",
-            () -> new GeoSwordItem(Tiers.DIAMOND, 3, -2.2f, new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -12,8 +12,21 @@ import java.util.List;
 
 public class ModWeapon extends SwordItem {
 
-    public ModWeapon(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
-        super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+    private final float procChance;
+    private final float baseDamage;
+
+    public ModWeapon(Tier pTier, int attackDamage, float pAttackSpeedModifier, Properties pProperties, float procChance) {
+        super(pTier, attackDamage, pAttackSpeedModifier, pProperties);
+        this.procChance = procChance;
+        this.baseDamage = attackDamage;
+    }
+
+    public double getProcChance() {
+        return procChance;
+    }
+
+    public int getAttackDamage() {
+        return (int) baseDamage;
     }
 
     @Override

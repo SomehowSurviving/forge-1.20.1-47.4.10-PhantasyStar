@@ -1,0 +1,11 @@
+{
+	"type": "epicfight:longsword",
+	"attributes": {
+		"common": {
+			"armor_negation": 20.0,
+  			"impact": 0.0,
+			"max_strikes": 0.0,
+			"speed_bonus": -0.4
+		}
+	}
+}

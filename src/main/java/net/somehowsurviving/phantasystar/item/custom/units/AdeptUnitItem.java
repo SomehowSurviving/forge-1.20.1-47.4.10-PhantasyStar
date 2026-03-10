@@ -19,18 +19,15 @@ import top.theillusivec4.curios.api.type.capability.ICurioItem;
 import java.util.List;
 import java.util.UUID;
 
-public class PowerUnitItem extends Item implements ICurioItem {
+public class AdeptUnitItem extends Item implements ICurioItem {
 
-    private final float AttackAmount;
-
-    public PowerUnitItem(Properties pProperties, float AttackAmount) {
+    public AdeptUnitItem(Properties pProperties) {
         super(pProperties);
-        this.AttackAmount = AttackAmount;
     }
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        pTooltipComponents.add(Component.translatable("item.phantasystar.power_unit.tooltip"));
+        pTooltipComponents.add(Component.translatable("item.phantasystar.adept.tooltip"));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 
@@ -38,7 +35,11 @@ public class PowerUnitItem extends Item implements ICurioItem {
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> modifiers = LinkedHashMultimap.create();
 
-        modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(uuid, "bonus_attack", AttackAmount, AttributeModifier.Operation.ADDITION));
+        modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(uuid, "bonus_attack", 0.10f, AttributeModifier.Operation.MULTIPLY_TOTAL));
+        modifiers.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(uuid, "bonus_move_speed", 0.10f, AttributeModifier.Operation.MULTIPLY_TOTAL));
+        modifiers.put(Attributes.ARMOR, new AttributeModifier(uuid, "bonus_armor", 4.0f, AttributeModifier.Operation.ADDITION));
+        modifiers.put(Attributes.ATTACK_SPEED, new AttributeModifier(uuid, "bonus_attack_speed", 0.10f, AttributeModifier.Operation.MULTIPLY_TOTAL));
+        modifiers.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "bonus_knock_back_resist", 0.10f, AttributeModifier.Operation.MULTIPLY_TOTAL));
 
         LivingEntity entity = slotContext.entity();
         if (entity instanceof Player player) {

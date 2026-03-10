@@ -28,7 +28,7 @@ public class SwordSaintUnitItem extends Item implements ICurioItem {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        pTooltipComponents.add(Component.translatable("tooltip.phantasystar.proof_of_sword_saint.tooltip"));
+        pTooltipComponents.add(Component.translatable("item.phantasystar.proof_of_sword_saint.tooltip"));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 

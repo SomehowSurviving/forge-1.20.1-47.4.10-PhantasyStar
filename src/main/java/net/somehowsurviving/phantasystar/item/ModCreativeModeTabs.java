@@ -27,6 +27,26 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MONOMATE.get());
                         output.accept(ModItems.DIMATE.get());
                         output.accept(ModItems.TRIMATE.get());
+                        // Weapons
+                        output.accept(ModItems.DB_SABER.get());
+                        output.accept(ModItems.MUSASHI.get());
+                        output.accept(ModItems.YAMATO.get());
+                        output.accept(ModItems.ASUKA.get());
+                        output.accept(ModItems.GUREN.get());
+                        output.accept(ModItems.SHOUREN.get());
+                        output.accept(ModItems.JIZAI_GUREN.get());
+                        output.accept(ModItems.JIZAI_SHOUREN.get());
+                        output.accept(ModItems.FLOWEN_SWORD_REPLICA.get());
+                        // Weapon Containers
+                        output.accept(ModItems.JIZAI_CONTAINER.get());
+                        // Mags
+                        output.accept(ModItems.BASE_MAG.get());
+                        output.accept(ModItems.VARUNA_MAG.get());
+                        output.accept(ModItems.KALKI_MAG.get());
+                        output.accept(ModItems.VRITRA_MAG.get());
+                        output.accept(ModItems.RUDRA_MAG.get());
+                        output.accept(ModItems.MITRA_MAG.get());
+                        output.accept(ModItems.VARAHA_MAG.get());
                         // Units
                         output.accept(ModItems.WARRIOR_BODY.get());
                         output.accept(ModItems.GENERAL_BODY.get());
@@ -57,19 +77,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.GOD_BATTLE.get());
                         output.accept(ModItems.HEAVENLY_BATTLE.get());
                         output.accept(ModItems.V101.get());
+                        output.accept(ModItems.LIMITER.get());
+                        output.accept(ModItems.SWORDSMAN_LORE.get());
+                        output.accept(ModItems.ADEPT.get());
                         output.accept(ModItems.SWORD_SAINT.get());
-                        // Mags
-                        output.accept(ModItems.BASE_MAG.get());
-                        output.accept(ModItems.VARUNA_MAG.get());
-                        output.accept(ModItems.KALKI_MAG.get());
-                        output.accept(ModItems.VRITRA_MAG.get());
-                        output.accept(ModItems.RUDRA_MAG.get());
-                        output.accept(ModItems.MITRA_MAG.get());
-                        output.accept(ModItems.VARAHA_MAG.get());
-                        // Weapons
-                        output.accept(ModItems.MUSASHI.get());
-                        output.accept(ModItems.YAMATO.get());
-                        output.accept(ModItems.FLOWEN_SWORD_REPLICA.get());
                         // Blocks
                         output.accept(ModBlocks.PHOTON_CRYSTAL.get());
                         output.accept(ModBlocks.PHOTON_CRYSTAL_ORE.get());

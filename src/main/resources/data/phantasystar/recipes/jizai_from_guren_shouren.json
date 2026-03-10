@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "phantasystar:guren"
+    },
+    {
+      "item": "phantasystar:shouren"
+    }
+  ],
+  "result": {
+    "item": "phantasystar:jizai_container",
+    "count": 1
+  }
+}

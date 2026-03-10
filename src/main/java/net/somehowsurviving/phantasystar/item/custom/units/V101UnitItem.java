@@ -27,7 +27,7 @@ public class V101UnitItem extends Item implements ICurioItem {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        pTooltipComponents.add(Component.translatable("tooltip.phantasystar.v101.tooltip"));
+        pTooltipComponents.add(Component.translatable("item.phantasystar.v101.tooltip"));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 

@@ -84,9 +84,9 @@ public class PhantasyStar {
             CuriosRendererRegistry.register(ModItems.VARUNA_MAG.get(), () -> new MagItemCurioRenderer(1.0f, 0.1f, 0.75f, 0.4f, 0.4f, 0.4f, 180f, 180f));
             CuriosRendererRegistry.register(ModItems.KALKI_MAG.get(), () -> new MagItemCurioRenderer(0.0f, -0.1f, 0.5f, 0.7f, 0.7f, 0.7f, 180f, 180f));
             CuriosRendererRegistry.register(ModItems.VRITRA_MAG.get(), () -> new MagItemCurioRenderer(1.0f, -0.2f, 0.75f, 0.4f, 0.4f, 0.4f, 180f, 180f));
-            CuriosRendererRegistry.register(ModItems.RUDRA_MAG.get(), () -> new MagItemCurioRenderer(0.0f, 0.2f, 0.6f, 1.0f, 1.0f, 1.0f, 180f, 180f));
+            CuriosRendererRegistry.register(ModItems.RUDRA_MAG.get(), () -> new MagItemCurioRenderer(0.0f, 0.1f, 0.6f, 1.0f, 1.0f, 1.0f, 180f, 180f));
             CuriosRendererRegistry.register(ModItems.MITRA_MAG.get(), () -> new MagItemCurioRenderer(0.8f, 0.2f, 0.75f, 0.5f, 0.5f, 0.5f, 180f, 160f));
-            CuriosRendererRegistry.register(ModItems.VARAHA_MAG.get(), () -> new MagItemCurioRenderer(0.0f, 0.3f, 0.4f, 0.8f, 1.0f, 0.4f, 180f, 180f));
+            CuriosRendererRegistry.register(ModItems.VARAHA_MAG.get(), () -> new MagItemCurioRenderer(0.0f, 0.3f, 0.4f, 0.8f, 1.0f, 1.0f, 180f, 180f));
 
             LOGGER.info("HELLO FROM PIONEER 2");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
