@@ -29,6 +29,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TRIMATE.get());
                         // Weapons
                         output.accept(ModItems.DB_SABER.get());
+                        output.accept(ModItems.FLOWEN_SWORD_REPLICA.get());
                         output.accept(ModItems.MUSASHI.get());
                         output.accept(ModItems.YAMATO.get());
                         output.accept(ModItems.ASUKA.get());
@@ -36,7 +37,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SHOUREN.get());
                         output.accept(ModItems.JIZAI_GUREN.get());
                         output.accept(ModItems.JIZAI_SHOUREN.get());
-                        output.accept(ModItems.FLOWEN_SWORD_REPLICA.get());
+                        output.accept(ModItems.LAME_DARGENT.get());
+                        output.accept(ModItems.EXCALIBUR.get());
                         // Weapon Containers
                         output.accept(ModItems.JIZAI_CONTAINER.get());
                         // Mags

@@ -123,10 +123,15 @@ public class ModItems {
             () -> new GeoSwordItem(Tiers.DIAMOND, 7, -2.2f, new Item.Properties(), 0.2f));
     public static final RegistryObject<Item> ASUKA = ITEMS.register("asuka",
             () -> new GeoSwordItem(Tiers.NETHERITE, 9, -2.2f, new Item.Properties(), 0.2f));
+    public static final RegistryObject<Item> EXCALIBUR = ITEMS.register("excalibur",
+            () -> new GeoSwordItem(Tiers.NETHERITE, 12, -2.2f, new Item.Properties(), 0.2f));
     // Special Weapon Containers
     public static final RegistryObject<Item> JIZAI_CONTAINER = ITEMS.register("jizai_container",
             () -> new WeaponCraftContainerItem(ModItems.JIZAI_GUREN, ModItems.JIZAI_SHOUREN,
                     new Item.Properties().stacksTo(1)));
+    // Transform Weapons
+    public static final RegistryObject<Item> LAME_DARGENT = ITEMS.register("lame_dargent",
+            () -> new KillCountGeoSwordItem(Tiers.NETHERITE, 8, -2.2f, new Item.Properties(), ModItems.EXCALIBUR, 1000));
 
     // Mags
     public static final RegistryObject<Item> BASE_MAG = ITEMS.register("base_mag",

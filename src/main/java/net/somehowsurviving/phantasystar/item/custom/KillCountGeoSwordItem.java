@@ -6,7 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import net.somehowsurviving.phantasystar.client.GeoSwordRenderer;
+import net.somehowsurviving.phantasystar.client.KillCountGeoSwordRenderer;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -75,12 +75,12 @@ public class KillCountGeoSwordItem extends SwordItem implements IKillTrackerItem
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-            private GeoSwordRenderer renderer;
+            private KillCountGeoSwordRenderer renderer;
 
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
                 if(this.renderer == null) {
-                    renderer = new GeoSwordRenderer();
+                    renderer = new KillCountGeoSwordRenderer();
                 }
 
                 return this.renderer;

@@ -36,6 +36,7 @@ public class SwordSaintUnitItem extends Item implements ICurioItem {
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> modifiers = LinkedHashMultimap.create();
 
+        modifiers.put(Attributes.ATTACK_SPEED, new AttributeModifier(uuid, "bonus_shred", 0.15f, AttributeModifier.Operation.MULTIPLY_TOTAL));
         modifiers.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(uuid, "bonus_move_speed", 0.3f, AttributeModifier.Operation.MULTIPLY_TOTAL));
         modifiers.put(Attributes.ARMOR, new AttributeModifier(uuid, "reduced_armor", -0.2f, AttributeModifier.Operation.MULTIPLY_TOTAL));
         modifiers.put(EpicFightAttributes.ARMOR_NEGATION.get(), new AttributeModifier(uuid, "bonus_shred", 0.2f, AttributeModifier.Operation.MULTIPLY_TOTAL));
