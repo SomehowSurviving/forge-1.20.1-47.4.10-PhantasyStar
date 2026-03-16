@@ -38,7 +38,6 @@ public class PhantasyStar {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-
         ModSounds.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);

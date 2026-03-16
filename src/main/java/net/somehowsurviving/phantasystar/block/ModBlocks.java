@@ -15,6 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.somehowsurviving.phantasystar.PhantasyStar;
 import net.somehowsurviving.phantasystar.block.custom.HorizPatternBlock;
 import net.somehowsurviving.phantasystar.block.custom.SoundBlock;
+import net.somehowsurviving.phantasystar.block.custom.TekkerTableBlock;
 import net.somehowsurviving.phantasystar.item.ModItems;
 
 import java.util.function.Supplier;
@@ -23,14 +24,21 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, PhantasyStar.MOD_ID);
 
+    // Loot boxes
+    public static final RegistryObject<Block> FOREST_BOX_NORMAL = registerBlock("forest_box_normal",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> CAVES_BOX_NORMAL = registerBlock("caves_box_normal",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> MINES_BOX_NORMAL = registerBlock("mines_box_normal",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> RUINS_BOX_NORMAL = registerBlock("ruins_box_normal",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.METAL)));
+
     public static final RegistryObject<Block> MINES_HEX_FLOOR = registerBlock("mines_hex_floor",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
 
     public static final RegistryObject<Block> MINES_OCT_FLOOR = registerBlock("mines_oct_floor",
             () -> new HorizPatternBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
-
-    public static final RegistryObject<Block> FOREST_BOX_NORMAL = registerBlock("forest_box_normal",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> PHOTON_CRYSTAL = registerBlock("photon_crystal",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER)));
@@ -41,6 +49,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> PHOTON_CRYSTAL_ORE = registerBlock("photon_crystal_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
+    // Block Entities
+    public static final RegistryObject<Block> TEKKER_TABLE = registerBlock("tekker_table",
+            () -> new TekkerTableBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

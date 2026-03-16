@@ -27,10 +27,35 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MONOMATE.get());
                         output.accept(ModItems.DIMATE.get());
                         output.accept(ModItems.TRIMATE.get());
+                        output.accept(ModItems.ANTIDOTE.get());
+                        output.accept(ModItems.ANTIPARALYSIS.get());
+                        output.accept(ModItems.SOL_ATOMIZER.get());
+                        output.accept(ModItems.STAR_ATOMIZER.get());
                         // Weapons
+                        output.accept(ModItems.SABER.get());
+                        output.accept(ModItems.BRAND.get());
+                        output.accept(ModItems.BUSTER.get());
+                        output.accept(ModItems.PALLASCH.get());
+                        output.accept(ModItems.GLADIUS.get());
+                        output.accept(ModItems.DAGGER.get());
+                        output.accept(ModItems.KNIFE.get());
+                        output.accept(ModItems.BLADE.get());
+                        output.accept(ModItems.EDGE.get());
+                        output.accept(ModItems.RIPPER.get());
+                        output.accept(ModItems.SWORD.get());
+                        output.accept(ModItems.GIGUSH.get());
+                        output.accept(ModItems.BREAKER.get());
+                        output.accept(ModItems.CLAYMORE.get());
+                        output.accept(ModItems.CALIBUR.get());
+                        output.accept(ModItems.PARTISAN.get());
+                        output.accept(ModItems.HALBERT.get());
+                        output.accept(ModItems.GLAIVE.get());
+                        output.accept(ModItems.BERDYS.get());
+                        output.accept(ModItems.GUNGNIR.get());
                         output.accept(ModItems.DB_SABER.get());
                         output.accept(ModItems.FLOWEN_SWORD_REPLICA.get());
                         output.accept(ModItems.MUSASHI.get());
+                        output.accept(ModItems.DRAGON_SLAYER.get());
                         output.accept(ModItems.YAMATO.get());
                         output.accept(ModItems.ASUKA.get());
                         output.accept(ModItems.GUREN.get());
@@ -87,6 +112,11 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.PHOTON_CRYSTAL.get());
                         output.accept(ModBlocks.PHOTON_CRYSTAL_ORE.get());
                         output.accept(ModBlocks.FOREST_BOX_NORMAL.get());
+                        output.accept(ModBlocks.CAVES_BOX_NORMAL.get());
+                        output.accept(ModBlocks.MINES_BOX_NORMAL.get());
+                        output.accept(ModBlocks.RUINS_BOX_NORMAL.get());
+                        output.accept(ModBlocks.TEKKER_TABLE.get());
+
                         output.accept(ModBlocks.MINES_HEX_FLOOR.get());
                         output.accept(ModBlocks.MINES_OCT_FLOOR.get());
                         output.accept(ModBlocks.SOUND_BLOCK.get());

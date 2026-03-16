@@ -24,7 +24,7 @@ public class MateItem extends Item {
         ItemStack stack = player.getItemInHand(hand);
 
         if(!level.isClientSide) {
-            if(player.getHealth() < player.getMaxHealth()) {
+            if(player.getHealth() < player.getMaxHealth() && player.getTicksFrozen() <= 0) {
                 player.heal(healAmount);
 
                 if(!player.getAbilities().instabuild) {

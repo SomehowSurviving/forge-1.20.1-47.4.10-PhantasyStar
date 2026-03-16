@@ -10,23 +10,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModWeapon extends SwordItem {
+public class ModWeapon extends SwordItem{
 
-    private final float procChance;
-    private final float baseDamage;
 
-    public ModWeapon(Tier pTier, int attackDamage, float pAttackSpeedModifier, Properties pProperties, float procChance) {
+    public ModWeapon(Tier pTier, int attackDamage, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, attackDamage, pAttackSpeedModifier, pProperties);
-        this.procChance = procChance;
-        this.baseDamage = attackDamage;
-    }
-
-    public double getProcChance() {
-        return procChance;
-    }
-
-    public int getAttackDamage() {
-        return (int) baseDamage;
     }
 
     @Override

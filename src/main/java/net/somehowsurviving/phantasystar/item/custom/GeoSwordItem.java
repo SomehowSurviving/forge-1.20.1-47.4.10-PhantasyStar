@@ -21,21 +21,8 @@ import java.util.function.Consumer;
 public class GeoSwordItem extends SwordItem implements GeoItem {
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
-    private final float baseDamage;
-    private final float procChance;
-
-    public GeoSwordItem(Tier tier, int attackDamage, float attackSpeed, Properties properties, float procChance) {
+    public GeoSwordItem(Tier tier, int attackDamage, float attackSpeed, Properties properties) {
         super(tier, attackDamage, attackSpeed, properties);
-        this.procChance = procChance;
-        this.baseDamage = attackDamage;
-    }
-
-    public double getProcChance() {
-        return procChance;
-    }
-
-    public int getAttackDamage() {
-        return (int) baseDamage;
     }
 
     @Override

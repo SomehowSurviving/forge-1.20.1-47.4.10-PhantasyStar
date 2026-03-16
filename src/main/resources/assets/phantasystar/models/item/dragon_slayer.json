@@ -1,0 +1,99 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    64,
+    64
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        2.75,
+        1.25
+      ],
+      "scale": [
+        1.02,
+        1.22,
+        1.02
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        2.75,
+        1.25
+      ],
+      "scale": [
+        1.02,
+        1.22,
+        1.02
+      ]
+    },
+    "firstperson_righthand": {
+      "translation": [
+        1.5,
+        -1,
+        -1.25
+      ]
+    },
+    "firstperson_lefthand": {
+      "translation": [
+        1.5,
+        -1,
+        -1.25
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        2.75,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.85,
+        0.7
+      ]
+    },
+    "gui": {
+      "rotation": [
+        90,
+        135,
+        -90
+      ],
+      "translation": [
+        3,
+        -3,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        -3.5,
+        0
+      ]
+    },
+    "on_shelf": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1.18,
+        1
+      ]
+    }
+  },
+  "textures": {
+    "particle": "phantasystar:item/dragon_slayer"
+  }
+}
