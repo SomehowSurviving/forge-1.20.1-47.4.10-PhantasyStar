@@ -16,7 +16,7 @@ public class GeoMagModel extends GeoModel<MagItem> {
     @Override
     public ResourceLocation getTextureResource(MagItem animatable) {
         ResourceLocation key = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(animatable);
-        return new ResourceLocation(PhantasyStar.MOD_ID, "textures/item/" + key.getPath() + ".png");
+        return new ResourceLocation(PhantasyStar.MOD_ID, "textures/item/mag/" + key.getPath() + ".png");
     }
 
     @Override

@@ -54,7 +54,6 @@ public class MagItem extends Item implements GeoItem, ICurioItem {
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> modifiers = LinkedHashMultimap.create();
 
-        // +3 Attack Damage
         modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(uuid, "bonus_attack", pAttackDamage, AttributeModifier.Operation.ADDITION));
         modifiers.put(Attributes.ATTACK_SPEED, new AttributeModifier(uuid, "bonus_attack_speed", pAttackSpeed, AttributeModifier.Operation.MULTIPLY_TOTAL));
         modifiers.put(Attributes.ARMOR, new AttributeModifier(uuid, "bonus_armor", pArmor, AttributeModifier.Operation.ADDITION));

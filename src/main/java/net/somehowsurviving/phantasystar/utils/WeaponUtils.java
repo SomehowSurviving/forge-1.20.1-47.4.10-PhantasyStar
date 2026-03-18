@@ -75,7 +75,7 @@ public class WeaponUtils {
 
         Random random = new Random();
 
-        if (random.nextFloat() > 0.40f) return;
+        if (random.nextFloat() > 0.60f) return;
 
         List<String> specials = List.of(
                 "heat",
@@ -124,20 +124,6 @@ public class WeaponUtils {
 
         tag.putBoolean("identified", false);
         tag.putString("hidden_special", roll);
-    }
-
-    public static void revealHiddenSpecial(ItemStack stack) {
-
-        CompoundTag tag = stack.getTag();
-        if (tag == null) return;
-
-        if (!tag.contains("hidden_special")) return;
-
-        String hidden = tag.getString("hidden_special");
-
-        tag.putString("special", hidden);
-        tag.putBoolean("identified", true);
-        tag.remove("hidden_special");
     }
 
     public static float getWeaponDamage(ItemStack weapon) {

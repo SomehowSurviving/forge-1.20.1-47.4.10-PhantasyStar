@@ -23,7 +23,6 @@ public class SpecialWeaponPickEvents {
 
         CompoundTag tag = stack.getOrCreateTag();
 
-        // Only roll hidden special if not already set
         if (!tag.contains("special") && !tag.contains("hidden_special")) {
             WeaponUtils.rollHiddenSpecial(stack);
         }

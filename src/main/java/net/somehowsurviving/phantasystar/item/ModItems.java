@@ -1,6 +1,7 @@
 package net.somehowsurviving.phantasystar.item;
 
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -170,12 +171,20 @@ public class ModItems {
             () -> new GeoSwordItem(Tiers.IRON, 3, -2.4f, new Item.Properties()));
     public static final RegistryObject<Item> MUSASHI = ITEMS.register("musashi",
             () -> new GeoSwordItem(Tiers.IRON, 6, -2.4f, new Item.Properties()));
+    public static final RegistryObject<Item> LAST_SURVIVOR = ITEMS.register("last_survivor",
+            () -> new GeoSwordItem(Tiers.DIAMOND, 9, -3.0f, new Item.Properties()));
     public static final RegistryObject<Item> DRAGON_SLAYER = ITEMS.register("dragon_slayer",
             () -> new GeoSwordItem(Tiers.DIAMOND, 10, -3.0f, new Item.Properties()));
+    public static final RegistryObject<Item> VICTOR_AXE = ITEMS.register("victor_axe",
+            () -> new GeoSwordItem(Tiers.DIAMOND, 10, -2.6f, new Item.Properties()));
     public static final RegistryObject<Item> YAMATO = ITEMS.register("yamato",
             () -> new GeoSwordItem(Tiers.DIAMOND, 7, -2.4f, new Item.Properties()));
     public static final RegistryObject<Item> ASUKA = ITEMS.register("asuka",
             () -> new GeoSwordItem(Tiers.NETHERITE, 9, -2.6f, new Item.Properties()));
+    public static final RegistryObject<Item> SOUL_EATER = ITEMS.register("soul_eater",
+            () -> new GeoSwordItem(Tiers.DIAMOND, 8, -2.8f, new Item.Properties()));
+    public static final RegistryObject<Item> SOUL_BANISH = ITEMS.register("soul_banish",
+            () -> new GeoSwordItem(Tiers.NETHERITE, 13, -2.8f, new Item.Properties()));
     public static final RegistryObject<Item> EXCALIBUR = ITEMS.register("excalibur",
             () -> new GeoSwordItem(Tiers.NETHERITE, 13, -2.6f, new Item.Properties()));
     // Special Weapon Containers
@@ -186,6 +195,11 @@ public class ModItems {
     public static final RegistryObject<Item> LAME_DARGENT = ITEMS.register("lame_dargent",
             () -> new KillCountGeoSwordItem(Tiers.NETHERITE, 8, -2.2f, new Item.Properties(), ModItems.EXCALIBUR, 1000));
 
+    // Frames and Armors
+    public static final RegistryObject<Item> FRAME = ITEMS.register("frame",
+            () -> new ModArmorItem(ModArmorMaterials.PSO, ArmorItem.Type.CHESTPLATE, new Item.Properties(), 3));
+    public static final RegistryObject<Item> ARMOR = ITEMS.register("armor",
+            () -> new ModArmorItem(ModArmorMaterials.PSO, ArmorItem.Type.CHESTPLATE, new Item.Properties(), 4));
     // Mags
     public static final RegistryObject<Item> BASE_MAG = ITEMS.register("base_mag",
             () -> new MagItem(new Item.Properties(), 0.0f, 0.0f, 1.0f, 0.0f, 0.0f));

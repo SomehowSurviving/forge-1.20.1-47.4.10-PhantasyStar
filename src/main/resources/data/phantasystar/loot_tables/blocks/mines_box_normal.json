@@ -12,79 +12,83 @@
         {
           "type": "minecraft:item",
           "name": "phantasystar:brand",
-          "weight": 2
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:dagger",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 2
-            }
-          ]
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:sword",
-          "weight": 2
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:partisan",
-          "weight": 2
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "phantasystar:armor",
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:digger_hp",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "phantasystar:warrior_body",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "phantasystar:knight_power",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "phantasystar:thief_legs",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "phantasystar:base_mag",
           "weight": 2
         },
         {
           "type": "minecraft:item",
+          "name": "phantasystar:warrior_body",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "phantasystar:knight_power",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "phantasystar:thief_legs",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "phantasystar:base_mag",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
           "name": "phantasystar:monomate",
-          "weight": 8
+          "weight": 6
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:antidote",
-          "weight": 8
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "phantasystar:antiparalysis",
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:sol_atomizer",
-          "weight": 5
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:meseta",
-          "weight": 20,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 4,
+                "min": 5,
                 "max": 6
               }
             }

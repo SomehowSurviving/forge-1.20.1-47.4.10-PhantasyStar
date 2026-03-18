@@ -82,6 +82,6 @@ public class MagItemCurioRenderer implements ICurioRenderer {
     protected net.minecraft.resources.ResourceLocation getTextureLocation(ItemStack stack) {
 
         ResourceLocation key = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem());
-        return new ResourceLocation("phantasystar", "textures/item/" + key.getPath() + ".png");
+        return new ResourceLocation("phantasystar", "textures/item/mag/" + key.getPath() + ".png");
     }
 }

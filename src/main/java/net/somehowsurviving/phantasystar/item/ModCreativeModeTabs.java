@@ -55,9 +55,13 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DB_SABER.get());
                         output.accept(ModItems.FLOWEN_SWORD_REPLICA.get());
                         output.accept(ModItems.MUSASHI.get());
+                        output.accept(ModItems.LAST_SURVIVOR.get());
                         output.accept(ModItems.DRAGON_SLAYER.get());
+                        output.accept(ModItems.VICTOR_AXE.get());
                         output.accept(ModItems.YAMATO.get());
                         output.accept(ModItems.ASUKA.get());
+                        output.accept(ModItems.SOUL_EATER.get());
+                        output.accept(ModItems.SOUL_BANISH.get());
                         output.accept(ModItems.GUREN.get());
                         output.accept(ModItems.SHOUREN.get());
                         output.accept(ModItems.JIZAI_GUREN.get());
@@ -66,6 +70,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.EXCALIBUR.get());
                         // Weapon Containers
                         output.accept(ModItems.JIZAI_CONTAINER.get());
+                        output.accept(ModItems.FRAME.get());
+                        output.accept(ModItems.ARMOR.get());
                         // Mags
                         output.accept(ModItems.BASE_MAG.get());
                         output.accept(ModItems.VARUNA_MAG.get());

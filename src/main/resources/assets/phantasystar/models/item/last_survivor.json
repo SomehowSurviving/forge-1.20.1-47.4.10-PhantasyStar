@@ -1,0 +1,109 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    64,
+    64
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        -0.25,
+        0.5
+      ],
+      "scale": [
+        0.9,
+        0.95,
+        1.02
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        -0.25,
+        0.5
+      ],
+      "scale": [
+        0.9,
+        0.95,
+        1.02
+      ]
+    },
+    "firstperson_righthand": {
+      "translation": [
+        1.25,
+        -0.75,
+        -1
+      ],
+      "scale": [
+        0.71,
+        0.71,
+        0.71
+      ]
+    },
+    "firstperson_lefthand": {
+      "translation": [
+        1.25,
+        -0.75,
+        -1
+      ],
+      "scale": [
+        0.71,
+        0.71,
+        0.71
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        3.25,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "gui": {
+      "rotation": [
+        81,
+        135,
+        -90
+      ],
+      "translation": [
+        4.75,
+        -4.25,
+        0
+      ],
+      "scale": [
+        0.52,
+        0.52,
+        0.59
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        -7.5,
+        0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "on_shelf": {
+      "rotation": [
+        0,
+        -180,
+        0
+      ]
+    }
+  },
+  "textures": {
+    "particle": "phantasystar:item/texture"
+  }
+}

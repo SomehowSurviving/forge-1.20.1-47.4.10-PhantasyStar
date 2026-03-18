@@ -1,0 +1,75 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    64,
+    64
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        -2,
+        0.25
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        -2,
+        0.25
+      ]
+    },
+    "firstperson_righthand": {
+      "translation": [
+        4,
+        -8.5,
+        -2.25
+      ]
+    },
+    "firstperson_lefthand": {
+      "translation": [
+        4,
+        -8.5,
+        -2.25
+      ]
+    },
+    "ground": {
+      "rotation": [
+        36,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        6.5,
+        0
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "gui": {
+      "rotation": [
+        90,
+        129,
+        -90
+      ],
+      "translation": [
+        3,
+        -1.5,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    }
+  },
+  "textures": {
+    "particle": "phantasystar:item/soul_eater"
+  }
+}

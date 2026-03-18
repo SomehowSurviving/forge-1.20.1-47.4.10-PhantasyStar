@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "phantasystar:saber",
+          "name": "phantasystar:brand",
           "weight": 4
         },
         {
@@ -26,38 +26,43 @@
         },
         {
           "type": "minecraft:item",
-          "name": "phantasystar:frame",
+          "name": "phantasystar:partisan",
           "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:armor",
-          "weight": 4
+          "weight": 150
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:digger_hp",
-          "weight": 1
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:warrior_body",
-          "weight": 1
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:knight_power",
-          "weight": 1
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:thief_legs",
-          "weight": 1
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "name": "phantasystar:monomate",
-          "weight": 5
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "phantasystar:dimate",
+          "weight": 3
         },
         {
           "type": "minecraft:item",
@@ -83,8 +88,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 3,
-                "max": 4
+                "min": 7,
+                "max": 8
               }
             }
           ]
