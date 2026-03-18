@@ -16,6 +16,7 @@ import java.util.Random;
 
 public class WeaponUtils {
 
+    private static final Random RANDOM = new Random();
     private WeaponUtils() {} // prevent instantiation
 
     public static String getWeaponSpecial(ItemStack stack) {
@@ -34,9 +35,7 @@ public class WeaponUtils {
             }
         }
 
-        System.out.println("Item in hand: " + stack.getItem());
-        System.out.println("In blizzard tag: " + stack.getItem().builtInRegistryHolder().is(ModTags.Items.BLIZZARD_WEAPONS));
-        // fallback to item tags
+        // Fallback to tags
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.ARREST_WEAPONS).contains(stack.getItem())) return "arrest";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.BERSERK_WEAPONS).contains(stack.getItem())) return "berserk";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.BLIZZARD_WEAPONS).contains(stack.getItem())) return "blizzard";
@@ -70,57 +69,25 @@ public class WeaponUtils {
 
         CompoundTag tag = stack.getOrCreateTag();
 
-        // Prevent rerolling weapons that already have specials
         if (tag.contains("special") || tag.contains("hidden_special")) return;
 
-        Random random = new Random();
-
-        if (random.nextFloat() > 0.60f) return;
+        if (RANDOM.nextFloat() > 0.35f) return;
 
         List<String> specials = List.of(
-                "heat",
-                "fire",
-                "flame",
-                "burn",
-                "shock",
-                "thunder",
-                "storm",
-                "tempest",
-                "draw",
-                "drain",
-                "fill",
-                "gush",
-                "heart",
-                "mind",
-                "soul",
-                "geist",
-                "master",
-                "lord",
-                "king",
-                "bind",
-                "hold",
-                "seize",
-                "arrest",
-                "panic",
-                "riot",
-                "havoc",
-                "chaos",
-                "ice",
-                "frost",
-                "freeze",
-                "blizzard",
-                "berserk",
-                "spirit",
-                "charge",
-                "devil",
-                "demon",
-                "dim",
-                "shadow",
-                "dark",
-                "hell"
+                "heat", "fire", "flame", "burn",
+                "shock", "thunder", "storm", "tempest",
+                "draw", "drain", "fill", "gush",
+                "heart", "mind", "soul", "geist",
+                "master", "lord", "king",
+                "bind", "hold", "seize", "arrest",
+                "panic", "riot", "havoc", "chaos",
+                "ice", "frost", "freeze", "blizzard",
+                "berserk", "spirit", "charge",
+                "devil", "demon",
+                "dim", "shadow", "dark", "hell"
         );
 
-        String roll = specials.get(random.nextInt(specials.size()));
+        String roll = specials.get(RANDOM.nextInt(specials.size()));
 
         tag.putBoolean("identified", false);
         tag.putString("hidden_special", roll);

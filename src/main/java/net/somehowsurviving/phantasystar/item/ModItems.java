@@ -172,9 +172,9 @@ public class ModItems {
     public static final RegistryObject<Item> MUSASHI = ITEMS.register("musashi",
             () -> new GeoSwordItem(Tiers.IRON, 6, -2.4f, new Item.Properties()));
     public static final RegistryObject<Item> LAST_SURVIVOR = ITEMS.register("last_survivor",
-            () -> new GeoSwordItem(Tiers.DIAMOND, 9, -3.0f, new Item.Properties()));
+            () -> new GeoSwordItem(Tiers.DIAMOND, 9, -3.2f, new Item.Properties()));
     public static final RegistryObject<Item> DRAGON_SLAYER = ITEMS.register("dragon_slayer",
-            () -> new GeoSwordItem(Tiers.DIAMOND, 10, -3.0f, new Item.Properties()));
+            () -> new GeoSwordItem(Tiers.DIAMOND, 10, -3.2f, new Item.Properties()));
     public static final RegistryObject<Item> VICTOR_AXE = ITEMS.register("victor_axe",
             () -> new GeoSwordItem(Tiers.DIAMOND, 10, -2.6f, new Item.Properties()));
     public static final RegistryObject<Item> YAMATO = ITEMS.register("yamato",
@@ -182,9 +182,9 @@ public class ModItems {
     public static final RegistryObject<Item> ASUKA = ITEMS.register("asuka",
             () -> new GeoSwordItem(Tiers.NETHERITE, 9, -2.6f, new Item.Properties()));
     public static final RegistryObject<Item> SOUL_EATER = ITEMS.register("soul_eater",
-            () -> new GeoSwordItem(Tiers.DIAMOND, 8, -2.8f, new Item.Properties()));
+            () -> new GeoSwordItem(Tiers.DIAMOND, 8, -3.0f, new Item.Properties()));
     public static final RegistryObject<Item> SOUL_BANISH = ITEMS.register("soul_banish",
-            () -> new GeoSwordItem(Tiers.NETHERITE, 13, -2.8f, new Item.Properties()));
+            () -> new GeoSwordItem(Tiers.NETHERITE, 13, -3.0f, new Item.Properties()));
     public static final RegistryObject<Item> EXCALIBUR = ITEMS.register("excalibur",
             () -> new GeoSwordItem(Tiers.NETHERITE, 13, -2.6f, new Item.Properties()));
     // Special Weapon Containers
