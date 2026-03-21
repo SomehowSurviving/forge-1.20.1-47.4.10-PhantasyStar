@@ -60,6 +60,9 @@ public class ModTags {
         public static final TagKey<Item> HELL_WEAPONS = ItemTags.create(
                 new ResourceLocation("phantasystar", "hell_weapons")
         );
+        public static final TagKey<Item> HOLD_WEAPONS = ItemTags.create(
+                new ResourceLocation("phantasystar", "hold_weapons")
+        );
         public static final TagKey<Item> KING_WEAPONS = ItemTags.create(
                 new ResourceLocation("phantasystar", "king_weapons")
         );

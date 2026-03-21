@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-public class ModArmorItem extends ArmorItem {
+public class ModSlotArmorItem extends ArmorItem {
 
     private final int armorValue;
     private static final UUID ARMOR_SLOT_UUID =
@@ -31,7 +31,7 @@ public class ModArmorItem extends ArmorItem {
             UUID.fromString("bbbbbbbb-0d8b-4a87-9c07-7c0b5f27d7e1");
     private static final Random RANDOM = new Random();
 
-    public ModArmorItem(ArmorMaterial material, Type type, Properties properties, int armorValue) {
+    public ModSlotArmorItem(ArmorMaterial material, Type type, Properties properties, int armorValue) {
         super(material, type, properties);
         this.armorValue = armorValue;
     }
@@ -97,7 +97,7 @@ public class ModArmorItem extends ArmorItem {
         CompoundTag tag = stack.getTag();
         int slots = stack.getTag().getInt("charm_slots");
         tooltip.add(Component.translatable(key + ".tooltip"));
-        tooltip.add(Component.translatable("item.phantasystar.armorSlots").append(": " + slots));
+        tooltip.add(Component.translatable("item.phantasystar.armor_slots").append(": " + slots));
         super.appendHoverText(stack, level, tooltip, flag);
     }
 }

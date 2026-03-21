@@ -1,6 +1,5 @@
 package net.somehowsurviving.phantasystar.events;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -11,13 +10,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.somehowsurviving.phantasystar.entities.BulletEntity;
+import net.somehowsurviving.phantasystar.entities.LauncherProjectileEntity;
 import net.somehowsurviving.phantasystar.item.ModItems;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.somehowsurviving.phantasystar.registry.ModTags;
 import net.somehowsurviving.phantasystar.utils.WeaponUtils;
 import static net.somehowsurviving.phantasystar.utils.WeaponUtils.getWeaponDamage;
 
@@ -36,15 +36,33 @@ public class CombatEvents {
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
 
-        if (!(event.getSource().getEntity() instanceof Player player)) return;
         LivingEntity target = event.getEntity();
-        System.out.println("LivingHurt fired");
 
-        ItemStack weaponStack = player.getMainHandItem();
+        Player player = null;
+        ItemStack weaponStack = ItemStack.EMPTY;
+
+        if (event.getSource().getEntity() instanceof Player p) {
+            player = p;
+            weaponStack = p.getMainHandItem();
+        }
+        else if (event.getSource().getEntity() instanceof BulletEntity bullet) {
+            if (bullet.getOwner() instanceof Player p) {
+                player = p;
+                weaponStack = bullet.getWeapon();
+            }
+        }
+        else if (event.getSource().getEntity() instanceof LauncherProjectileEntity rocket) {
+            if (rocket.getOwner() instanceof Player p) {
+                player = p;
+                weaponStack = rocket.getWeapon();
+            }
+        }
+
+// 🚫 Keep your existing guards
+        if (player == null) return;
         if (weaponStack.isEmpty()) return;
 
         String special = WeaponUtils.getWeaponSpecial(weaponStack);
-        System.out.println("Weapon special: " + special);
         if (special == null) return;
 
         // Switch handles all effects

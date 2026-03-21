@@ -9,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.somehowsurviving.phantasystar.PhantasyStar;
+import net.somehowsurviving.phantasystar.entities.ModEntities;
 import net.somehowsurviving.phantasystar.item.custom.*;
 import net.somehowsurviving.phantasystar.item.custom.units.*;
 
@@ -154,10 +155,22 @@ public class ModItems {
             () -> new SpecialRollModWeapon(Tiers.DIAMOND, 4, -2.8f, new Item.Properties()));
     public static final RegistryObject<Item> GUNGNIR = ITEMS.register("gungnir",
             () -> new SpecialRollModWeapon(Tiers.DIAMOND, 5, -2.8f, new Item.Properties()));
+    public static final RegistryObject<Item> HANDGUN = ITEMS.register("handgun",
+            () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.HANDGUN, 5.0f, ModEntities.BULLET_GREEN, null));
+    public static final RegistryObject<Item> AUTOGUN = ITEMS.register("autogun",
+            () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.HANDGUN, 7.0f, ModEntities.BULLET_BLUE, null));
+    public static final RegistryObject<Item> LOCKGUN = ITEMS.register("lockgun",
+            () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.HANDGUN, 9.0f, ModEntities.BULLET_PINK, null));
+    public static final RegistryObject<Item> RAILGUN = ITEMS.register("railgun",
+            () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.HANDGUN, 11.0f, ModEntities.BULLET_RED, null));
+    public static final RegistryObject<Item> RAYGUN = ITEMS.register("raygun",
+            () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.HANDGUN, 13.0f, ModEntities.BULLET_YELLOW, null));
 
     // Rare Weapons
     public static final RegistryObject<Item> FLOWEN_SWORD_REPLICA = ITEMS.register("flowen_sword_replica",
             () -> new ModWeapon(Tiers.DIAMOND, 7, -3.0f, new Item.Properties()));
+    public static final RegistryObject<Item> FLOWEN_SWORD_3084 = ITEMS.register("flowen_sword_3084",
+            () -> new ModWeapon(Tiers.NETHERITE, 10, -3.0f, new Item.Properties()));
     public static final RegistryObject<Item> GUREN = ITEMS.register("guren",
             () -> new ModWeapon(Tiers.NETHERITE, 11, -2.6f, new Item.Properties()));
     public static final RegistryObject<Item> SHOUREN = ITEMS.register("shouren",
@@ -181,15 +194,29 @@ public class ModItems {
             () -> new GeoSwordItem(Tiers.DIAMOND, 7, -2.4f, new Item.Properties()));
     public static final RegistryObject<Item> ASUKA = ITEMS.register("asuka",
             () -> new GeoSwordItem(Tiers.NETHERITE, 9, -2.6f, new Item.Properties()));
+    public static final RegistryObject<Item> SANGE = ITEMS.register("sange",
+            () -> new GeoSwordItem(Tiers.NETHERITE, 10, -2.6f, new Item.Properties()));
+    public static final RegistryObject<Item> YASHA = ITEMS.register("yasha",
+            () -> new GeoSwordItem(Tiers.NETHERITE, 10, -2.6f, new Item.Properties()));
+    public static final RegistryObject<Item> SAY_SANGE = ITEMS.register("say_sange",
+            () -> new GeoSwordItem(Tiers.NETHERITE, 11, -2.6f, new Item.Properties()));
+    public static final RegistryObject<Item> SAY_YASHA = ITEMS.register("say_yasha",
+            () -> new GeoSwordItem(Tiers.NETHERITE, 11, -2.6f, new Item.Properties()));
     public static final RegistryObject<Item> SOUL_EATER = ITEMS.register("soul_eater",
             () -> new GeoSwordItem(Tiers.DIAMOND, 8, -3.0f, new Item.Properties()));
     public static final RegistryObject<Item> SOUL_BANISH = ITEMS.register("soul_banish",
             () -> new GeoSwordItem(Tiers.NETHERITE, 13, -3.0f, new Item.Properties()));
     public static final RegistryObject<Item> EXCALIBUR = ITEMS.register("excalibur",
             () -> new GeoSwordItem(Tiers.NETHERITE, 13, -2.6f, new Item.Properties()));
+    // Gecko Guns
+    public static final RegistryObject<Item> PHOTON_LAUNCHER = ITEMS.register("photon_launcher",
+            () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.LAUNCHER, 13.0f, null, ModEntities.LAUNCHER_PROJECTILE_GREEN));
     // Special Weapon Containers
     public static final RegistryObject<Item> JIZAI_CONTAINER = ITEMS.register("jizai_container",
             () -> new WeaponCraftContainerItem(ModItems.JIZAI_GUREN, ModItems.JIZAI_SHOUREN,
+                    new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SANGE_YASHA_CONTAINER = ITEMS.register("sange_yasha_container",
+            () -> new WeaponCraftContainerItem(ModItems.SAY_SANGE, ModItems.SAY_YASHA,
                     new Item.Properties().stacksTo(1)));
     // Transform Weapons
     public static final RegistryObject<Item> LAME_DARGENT = ITEMS.register("lame_dargent",
@@ -197,9 +224,10 @@ public class ModItems {
 
     // Frames and Armors
     public static final RegistryObject<Item> FRAME = ITEMS.register("frame",
-            () -> new ModArmorItem(ModArmorMaterials.PSO, ArmorItem.Type.CHESTPLATE, new Item.Properties(), 3));
+            () -> new ModSlotArmorItem(ModArmorMaterials.PSO, ArmorItem.Type.CHESTPLATE, new Item.Properties(), 3));
     public static final RegistryObject<Item> ARMOR = ITEMS.register("armor",
-            () -> new ModArmorItem(ModArmorMaterials.PSO, ArmorItem.Type.CHESTPLATE, new Item.Properties(), 4));
+            () -> new ModSlotArmorItem(ModArmorMaterials.PSO, ArmorItem.Type.CHESTPLATE, new Item.Properties(), 4));
+
     // Mags
     public static final RegistryObject<Item> BASE_MAG = ITEMS.register("base_mag",
             () -> new MagItem(new Item.Properties(), 0.0f, 0.0f, 1.0f, 0.0f, 0.0f));

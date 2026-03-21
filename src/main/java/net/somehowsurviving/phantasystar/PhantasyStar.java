@@ -2,6 +2,7 @@ package net.somehowsurviving.phantasystar;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -16,7 +17,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.somehowsurviving.phantasystar.block.ModBlocks;
+import net.somehowsurviving.phantasystar.client.GeoBulletRenderer;
+import net.somehowsurviving.phantasystar.client.GeoLauncherProjectileRenderer;
 import net.somehowsurviving.phantasystar.client.MagItemCurioRenderer;
+import net.somehowsurviving.phantasystar.entities.ModEntities;
 import net.somehowsurviving.phantasystar.item.ModCreativeModeTabs;
 import net.somehowsurviving.phantasystar.item.ModItems;
 import net.somehowsurviving.phantasystar.sound.ModSounds;
@@ -39,6 +43,7 @@ public class PhantasyStar {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -87,6 +92,15 @@ public class PhantasyStar {
             CuriosRendererRegistry.register(ModItems.MITRA_MAG.get(), () -> new MagItemCurioRenderer(0.8f, 0.2f, 0.75f, 0.5f, 0.5f, 0.5f, 180f, 160f));
             CuriosRendererRegistry.register(ModItems.VARAHA_MAG.get(), () -> new MagItemCurioRenderer(0.0f, 0.3f, 0.4f, 0.8f, 1.0f, 1.0f, 180f, 180f));
 
+            EntityRenderers.register(ModEntities.BULLET_GREEN.get(), GeoBulletRenderer::new);
+            EntityRenderers.register(ModEntities.BULLET_BLUE.get(), GeoBulletRenderer::new);
+            EntityRenderers.register(ModEntities.BULLET_PINK.get(), GeoBulletRenderer::new);
+            EntityRenderers.register(ModEntities.BULLET_RED.get(), GeoBulletRenderer::new);
+            EntityRenderers.register(ModEntities.BULLET_YELLOW.get(), GeoBulletRenderer::new);
+
+            EntityRenderers.register(ModEntities.LAUNCHER_PROJECTILE_GREEN.get(), GeoLauncherProjectileRenderer::new);
+            EntityRenderers.register(ModEntities.LAUNCHER_PROJECTILE_BLUE.get(), GeoLauncherProjectileRenderer::new);
+            EntityRenderers.register(ModEntities.LAUNCHER_PROJECTILE_RED.get(), GeoLauncherProjectileRenderer::new);
             LOGGER.info("HELLO FROM PIONEER 2");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }

@@ -53,6 +53,7 @@ public class WeaponUtils {
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.HAVOC_WEAPONS).contains(stack.getItem())) return "havoc";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.HEART_WEAPONS).contains(stack.getItem())) return "heart";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.HELL_WEAPONS).contains(stack.getItem())) return "hell";
+        if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.HOLD_WEAPONS).contains(stack.getItem())) return "hold";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.KING_WEAPONS).contains(stack.getItem())) return "king";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.LORD_WEAPONS).contains(stack.getItem())) return "lord";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.MIND_WEAPONS).contains(stack.getItem())) return "mind";

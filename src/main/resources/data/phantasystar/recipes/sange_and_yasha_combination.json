@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "phantasystar:sange"
+    },
+    {
+      "item": "phantasystar:yasha"
+    }
+  ],
+  "result": {
+    "item": "phantasystar:sange_yasha_container",
+    "count": 1
+  }
+}

@@ -54,6 +54,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.GUNGNIR.get());
                         output.accept(ModItems.DB_SABER.get());
                         output.accept(ModItems.FLOWEN_SWORD_REPLICA.get());
+                        output.accept(ModItems.FLOWEN_SWORD_3084.get());
                         output.accept(ModItems.MUSASHI.get());
                         output.accept(ModItems.LAST_SURVIVOR.get());
                         output.accept(ModItems.DRAGON_SLAYER.get());
@@ -62,14 +63,27 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ASUKA.get());
                         output.accept(ModItems.SOUL_EATER.get());
                         output.accept(ModItems.SOUL_BANISH.get());
+                        output.accept(ModItems.SANGE.get());
+                        output.accept(ModItems.YASHA.get());
+                        output.accept(ModItems.SAY_SANGE.get());
+                        output.accept(ModItems.SAY_YASHA.get());
                         output.accept(ModItems.GUREN.get());
                         output.accept(ModItems.SHOUREN.get());
                         output.accept(ModItems.JIZAI_GUREN.get());
                         output.accept(ModItems.JIZAI_SHOUREN.get());
                         output.accept(ModItems.LAME_DARGENT.get());
                         output.accept(ModItems.EXCALIBUR.get());
+                        // Guns
+                        output.accept(ModItems.HANDGUN.get());
+                        output.accept(ModItems.AUTOGUN.get());
+                        output.accept(ModItems.LOCKGUN.get());
+                        output.accept(ModItems.RAILGUN.get());
+                        output.accept(ModItems.RAYGUN.get());
+                        output.accept(ModItems.PHOTON_LAUNCHER.get());
                         // Weapon Containers
+                        output.accept(ModItems.SANGE_YASHA_CONTAINER.get());
                         output.accept(ModItems.JIZAI_CONTAINER.get());
+                        // Armors
                         output.accept(ModItems.FRAME.get());
                         output.accept(ModItems.ARMOR.get());
                         // Mags
