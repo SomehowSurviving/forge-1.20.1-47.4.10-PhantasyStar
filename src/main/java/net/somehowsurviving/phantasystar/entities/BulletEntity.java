@@ -62,6 +62,7 @@ public class BulletEntity extends AbstractArrow implements GeoAnimatable {
         Entity target = result.getEntity();
 
         if (target instanceof LivingEntity living && this.getOwner() instanceof Player player) {
+            living.invulnerableTime = Math.min(living.invulnerableTime, 1);
             living.hurt(level().damageSources().playerAttack(player), damage);
         }
         discard();

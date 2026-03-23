@@ -98,6 +98,12 @@ public class PhantasyStar {
             EntityRenderers.register(ModEntities.BULLET_RED.get(), GeoBulletRenderer::new);
             EntityRenderers.register(ModEntities.BULLET_YELLOW.get(), GeoBulletRenderer::new);
 
+            EntityRenderers.register(ModEntities.MECHGUN_BULLET_GREEN.get(), GeoBulletRenderer::new);
+            EntityRenderers.register(ModEntities.MECHGUN_BULLET_BLUE.get(), GeoBulletRenderer::new);
+            EntityRenderers.register(ModEntities.MECHGUN_BULLET_PINK.get(), GeoBulletRenderer::new);
+            EntityRenderers.register(ModEntities.MECHGUN_BULLET_RED.get(), GeoBulletRenderer::new);
+            EntityRenderers.register(ModEntities.MECHGUN_BULLET_YELLOW.get(), GeoBulletRenderer::new);
+
             EntityRenderers.register(ModEntities.LAUNCHER_PROJECTILE_GREEN.get(), GeoLauncherProjectileRenderer::new);
             EntityRenderers.register(ModEntities.LAUNCHER_PROJECTILE_BLUE.get(), GeoLauncherProjectileRenderer::new);
             EntityRenderers.register(ModEntities.LAUNCHER_PROJECTILE_RED.get(), GeoLauncherProjectileRenderer::new);

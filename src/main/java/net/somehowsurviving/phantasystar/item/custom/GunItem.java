@@ -33,6 +33,7 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.RenderUtils;
 
 import java.util.List;
+import java.util.Set;
 import java.util.function.Consumer;
 
 public class GunItem extends Item implements GeoItem {
@@ -66,6 +67,23 @@ public class GunItem extends Item implements GeoItem {
         return rocketType.get();
     }
 
+    /* Once LS, MR, MG, and OS are in here.
+    private static final Set<Item> SINGLE_MECHGUNS = Set.of(
+            ModItems.LAST_SWAN.get(),
+            ModItems.MASTER_RAVEN.get(),
+            ModItems.GULD.get(),
+            ModItems.MILLA.get()
+    );
+
+    /* This will handle Dual Bird when they are added
+    private boolean isSpecialPair(Item a, Item b) {
+        return (a == ModItems.DB_LAST_SWAN.get() && b == ModItems.DB_MASTER_RAVEN.get()) ||
+                (a == ModItems.DB_MASTER_RAVEN.get() && b == ModItems.DB_LAST_SWAN.get()) ||
+                (a == ModItems.GM_GULD.get() && b == ModItems.GM_MILLA.get()) ||
+                (a == ModItems.GM_MILLA.get() && b == ModItems.GM_GULD.get());
+    }
+    */
+
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot slot) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
@@ -90,6 +108,7 @@ public class GunItem extends Item implements GeoItem {
     }
 
     private void shoot(Level level, Player player, ItemStack stack) {
+        if (player.getMainHandItem() != stack) return;
         switch (gunType) {
             case HANDGUN -> fireHandgun(level, player, stack);
             case RIFLE -> fireRifle(level, player, stack);
@@ -100,11 +119,11 @@ public class GunItem extends Item implements GeoItem {
         double atkSpeed = Math.max(0.1, player.getAttribute(Attributes.ATTACK_SPEED).getValue());
 
         double ratio = switch (gunType) {
-            case HANDGUN -> 44.0;
-            case RIFLE -> 48.0;
-            case MECHGUN -> 32.0;
-            case SHOTGUN -> 72.0;
-            case LAUNCHER -> 80.0;
+            case HANDGUN -> 56.0;
+            case RIFLE -> 64.0;
+            case MECHGUN -> 60.0;
+            case SHOTGUN -> 84.0;
+            case LAUNCHER -> 100.0;
         };
 
         int cooldown = (int) Math.round(ratio / atkSpeed);
@@ -184,9 +203,16 @@ public class GunItem extends Item implements GeoItem {
     private void fireMechgun(Level level, Player player, ItemStack stack) {
         CompoundTag data = player.getPersistentData();
 
+        Item mainItem = player.getMainHandItem().getItem();
+        Item offItem  = player.getOffhandItem().getItem();
+        // Drop in  && !isSpecialPair(mainItem, offItem) after offItem once dual bird is added
+        // if (!SINGLE_MECHGUNS.contains(mainItem)) {
+        if (mainItem != offItem) return;
+        // }
+
         data.putInt("burst_shots", 3);
         data.putInt("burst_timer", 0);
-        data.putInt("burst_delay", 6);
+        data.putInt("burst_delay", 2);
 
         // Save the weapon AND the bullet type key
         ItemStack copy = stack.copy();

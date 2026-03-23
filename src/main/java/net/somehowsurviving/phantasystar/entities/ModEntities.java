@@ -27,30 +27,70 @@ public class ModEntities {
             .sized(0.25f, 0.25f)
             .clientTrackingRange(8)
             .updateInterval(1)
-            .build("bullet_blue"));
+            .build("bullet_blue")
+            );
     public static final RegistryObject<EntityType<BulletEntity>> BULLET_PINK =
             ENTITIES.register("bullet_pink", () ->
                     EntityType.Builder.<BulletEntity>of(BulletEntity::new, MobCategory.MISC)
             .sized(0.25f, 0.25f)
             .clientTrackingRange(8)
             .updateInterval(1)
-            .build("bullet_pink"));
-
+            .build("bullet_pink")
+            );
     public static final RegistryObject<EntityType<BulletEntity>> BULLET_RED =
             ENTITIES.register("bullet_red", () ->
                     EntityType.Builder.<BulletEntity>of(BulletEntity::new, MobCategory.MISC)
             .sized(0.25f, 0.25f)
             .clientTrackingRange(8)
             .updateInterval(1)
-            .build("bullet_red"));
-
+            .build("bullet_red")
+            );
     public static final RegistryObject<EntityType<BulletEntity>> BULLET_YELLOW =
             ENTITIES.register("bullet_yellow", () ->
                     EntityType.Builder.<BulletEntity>of(BulletEntity::new, MobCategory.MISC)
             .sized(0.25f, 0.25f)
             .clientTrackingRange(8)
             .updateInterval(1)
-            .build("bullet_yellow"));
+            .build("bullet_yellow")
+            );
+    public static final RegistryObject<EntityType<BulletEntity>> MECHGUN_BULLET_GREEN =
+            ENTITIES.register("mechgun_bullet_green", () ->
+                    EntityType.Builder.<BulletEntity>of(BulletEntity::new, MobCategory.MISC)
+                            .sized(0.25f, 0.25f)
+                            .clientTrackingRange(8)
+                            .updateInterval(1)
+                            .build("mechgun_bullet_green")
+            );
+    public static final RegistryObject<EntityType<BulletEntity>> MECHGUN_BULLET_BLUE =
+            ENTITIES.register("mechgun_bullet_blue", () ->
+                    EntityType.Builder.<BulletEntity>of(BulletEntity::new, MobCategory.MISC)
+                            .sized(0.25f, 0.25f)
+                            .clientTrackingRange(8)
+                            .updateInterval(1)
+                            .build("mechgun_bullet_blue"));
+    public static final RegistryObject<EntityType<BulletEntity>> MECHGUN_BULLET_PINK =
+            ENTITIES.register("mechgun_bullet_pink", () ->
+                    EntityType.Builder.<BulletEntity>of(BulletEntity::new, MobCategory.MISC)
+                            .sized(0.25f, 0.25f)
+                            .clientTrackingRange(8)
+                            .updateInterval(1)
+                            .build("mechgun_bullet_pink"));
+
+    public static final RegistryObject<EntityType<BulletEntity>> MECHGUN_BULLET_RED =
+            ENTITIES.register("mechgun_bullet_red", () ->
+                    EntityType.Builder.<BulletEntity>of(BulletEntity::new, MobCategory.MISC)
+                            .sized(0.25f, 0.25f)
+                            .clientTrackingRange(8)
+                            .updateInterval(1)
+                            .build("mechgun_bullet_red"));
+
+    public static final RegistryObject<EntityType<BulletEntity>> MECHGUN_BULLET_YELLOW =
+            ENTITIES.register("mechgun_bullet_yellow", () ->
+                    EntityType.Builder.<BulletEntity>of(BulletEntity::new, MobCategory.MISC)
+                            .sized(0.25f, 0.25f)
+                            .clientTrackingRange(8)
+                            .updateInterval(1)
+                            .build("mechgun_bullet_yellow"));
 
     public static final RegistryObject<EntityType<LauncherProjectileEntity>> LAUNCHER_PROJECTILE_GREEN =
             ENTITIES.register("launcher_projectile_green",

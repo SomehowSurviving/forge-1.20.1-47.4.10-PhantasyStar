@@ -165,6 +165,16 @@ public class ModItems {
             () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.HANDGUN, 11.0f, ModEntities.BULLET_RED, null));
     public static final RegistryObject<Item> RAYGUN = ITEMS.register("raygun",
             () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.HANDGUN, 13.0f, ModEntities.BULLET_YELLOW, null));
+    public static final RegistryObject<Item> MECHGUN = ITEMS.register("mechgun",
+            () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.MECHGUN, 2.0f, ModEntities.MECHGUN_BULLET_GREEN, null));
+    public static final RegistryObject<Item> ASSAULT = ITEMS.register("assault",
+            () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.MECHGUN, 4.0f, ModEntities.MECHGUN_BULLET_BLUE, null));
+    public static final RegistryObject<Item> REPEATER = ITEMS.register("repeater",
+            () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.MECHGUN, 6.0f, ModEntities.MECHGUN_BULLET_PINK, null));
+    public static final RegistryObject<Item> GATLING = ITEMS.register("gatling",
+            () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.MECHGUN, 8.0f, ModEntities.MECHGUN_BULLET_RED, null));
+    public static final RegistryObject<Item> VULCAN = ITEMS.register("vulcan",
+            () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.MECHGUN, 10.0f, ModEntities.MECHGUN_BULLET_YELLOW, null));
 
     // Rare Weapons
     public static final RegistryObject<Item> FLOWEN_SWORD_REPLICA = ITEMS.register("flowen_sword_replica",
@@ -210,7 +220,11 @@ public class ModItems {
             () -> new GeoSwordItem(Tiers.NETHERITE, 13, -2.6f, new Item.Properties()));
     // Gecko Guns
     public static final RegistryObject<Item> PHOTON_LAUNCHER = ITEMS.register("photon_launcher",
-            () -> new SpecialRollGunItem(new Item.Properties().stacksTo(1), GunType.LAUNCHER, 13.0f, null, ModEntities.LAUNCHER_PROJECTILE_GREEN));
+            () -> new GunItem(new Item.Properties().stacksTo(1), GunType.LAUNCHER, 13.0f, null, ModEntities.LAUNCHER_PROJECTILE_GREEN));
+    public static final RegistryObject<Item> GUILTY_LIGHT = ITEMS.register("guilty_light",
+            () -> new GunItem(new Item.Properties().stacksTo(1), GunType.LAUNCHER, 13.0f, null, ModEntities.LAUNCHER_PROJECTILE_BLUE));
+    public static final RegistryObject<Item> RED_SCORPIO = ITEMS.register("red_scorpio",
+            () -> new GunItem(new Item.Properties().stacksTo(1), GunType.LAUNCHER, 13.0f, null, ModEntities.LAUNCHER_PROJECTILE_RED));
     // Special Weapon Containers
     public static final RegistryObject<Item> JIZAI_CONTAINER = ITEMS.register("jizai_container",
             () -> new WeaponCraftContainerItem(ModItems.JIZAI_GUREN, ModItems.JIZAI_SHOUREN,

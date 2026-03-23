@@ -71,6 +71,13 @@ public class SpecialRollGunItem extends Item implements GeoItem {
         return rocketType.get();
     }
 
+    /* This will handle Dual Bird when they are added
+    private boolean isSpecialPair(Item a, Item b) {
+        return (a == ModItems.DB_LAST_SWAN.get() && b == ModItems.DB_MASTER_RAVEN.get()) ||
+                (a == ModItems.DB_MASTER_RAVEN.get() && b == ModItems.DB_LAST_SWAN.get());
+    }
+    */
+
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot slot) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
@@ -95,6 +102,7 @@ public class SpecialRollGunItem extends Item implements GeoItem {
     }
 
     private void shoot(Level level, Player player, ItemStack stack) {
+        if (player.getMainHandItem() != stack) return;
         switch (gunType) {
             case HANDGUN -> fireHandgun(level, player, stack);
             case RIFLE -> fireRifle(level, player, stack);
@@ -105,11 +113,11 @@ public class SpecialRollGunItem extends Item implements GeoItem {
         double atkSpeed = Math.max(0.1, player.getAttribute(Attributes.ATTACK_SPEED).getValue());
 
         double ratio = switch (gunType) {
-            case HANDGUN -> 44.0;
-            case RIFLE -> 48.0;
-            case MECHGUN -> 32.0;
-            case SHOTGUN -> 72.0;
-            case LAUNCHER -> 80.0;
+            case HANDGUN -> 56.0;
+            case RIFLE -> 64.0;
+            case MECHGUN -> 60.0;
+            case SHOTGUN -> 84.0;
+            case LAUNCHER -> 100.0;
         };
 
         int cooldown = (int) Math.round(ratio / atkSpeed);
@@ -190,9 +198,14 @@ public class SpecialRollGunItem extends Item implements GeoItem {
     private void fireMechgun(Level level, Player player, ItemStack stack) {
         CompoundTag data = player.getPersistentData();
 
+        Item mainItem = player.getMainHandItem().getItem();
+        Item offItem  = player.getOffhandItem().getItem();
+        // Drop in  && !isSpecialPair(mainItem, offItem) after offItem once dual bird is added
+        if (mainItem != offItem) return;
+
         data.putInt("burst_shots", 3);
         data.putInt("burst_timer", 0);
-        data.putInt("burst_delay", 6);
+        data.putInt("burst_delay", 2);
 
         // Save the weapon AND the bullet type key
         ItemStack copy = stack.copy();

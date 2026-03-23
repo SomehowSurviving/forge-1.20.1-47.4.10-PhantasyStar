@@ -79,7 +79,14 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.LOCKGUN.get());
                         output.accept(ModItems.RAILGUN.get());
                         output.accept(ModItems.RAYGUN.get());
+                        output.accept(ModItems.MECHGUN.get());
+                        output.accept(ModItems.ASSAULT.get());
+                        output.accept(ModItems.REPEATER.get());
+                        output.accept(ModItems.GATLING.get());
+                        output.accept(ModItems.VULCAN.get());
                         output.accept(ModItems.PHOTON_LAUNCHER.get());
+                        output.accept(ModItems.GUILTY_LIGHT.get());
+                        output.accept(ModItems.RED_SCORPIO.get());
                         // Weapon Containers
                         output.accept(ModItems.SANGE_YASHA_CONTAINER.get());
                         output.accept(ModItems.JIZAI_CONTAINER.get());

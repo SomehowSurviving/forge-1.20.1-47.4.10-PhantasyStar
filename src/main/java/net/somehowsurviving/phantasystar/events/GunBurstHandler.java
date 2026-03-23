@@ -1,6 +1,7 @@
 package net.somehowsurviving.phantasystar.events;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -12,6 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.somehowsurviving.phantasystar.entities.BulletEntity;
 import net.somehowsurviving.phantasystar.item.custom.GunItem;
+import net.somehowsurviving.phantasystar.item.custom.SpecialRollGunItem;
 
 @Mod.EventBusSubscriber
 public class GunBurstHandler {
@@ -50,42 +52,55 @@ public class GunBurstHandler {
 
         ItemStack weapon = ItemStack.of(data.getCompound("burst_weapon"));
 
-        if (!(weapon.getItem() instanceof GunItem gunItem)) {
-            data.remove("burst_shots");
-            return;
-        }
-
-        fireBullet(player, weapon, gunItem);
+        fireBullet(player, weapon);
 
         data.putInt("burst_shots", shots - 1);
         data.putInt("burst_timer", delay);
     }
 
-    private static void fireBullet(Player player, ItemStack stack, GunItem gunItem) {
+    private static void fireBullet(Player player, ItemStack stack) {
         Level level = player.level();
-
         Item item = stack.getItem();
 
-        if (!(item instanceof GunItem gun)) return;
+        BulletEntity bullet;
+        float damage;
+        EntityType<?> bulletType;
 
-        BulletEntity bullet = gun.getBulletType().create(level);
+        // Handle GunItem
+        if (item instanceof GunItem g) {
+            bulletType = g.getBulletType();
+            damage = g.getWeaponDamage();
+            bullet = (BulletEntity) bulletType.create(level);
+        }
+        // Handle SpecialRollGunItem
+        else if (item instanceof SpecialRollGunItem s) {
+            bulletType = s.getBulletType();
+            damage = s.getWeaponDamage();
+            bullet = (BulletEntity) bulletType.create(level);
+        }
+        // Not a valid gun
+        else {
+            player.getPersistentData().remove("burst_shots");
+            return;
+        }
 
+        if (bullet == null) return;
 
         bullet.setOwner(player);
         bullet.setWeapon(stack.copy());
 
+        // Calculate bonus damage from player attributes
         double bonus = 0;
         for (AttributeModifier mod : player.getAttribute(Attributes.ATTACK_DAMAGE).getModifiers()) {
-            // ignore the gun itself (if for some reason a modifier sneaks in)
             if (!mod.getName().equals("Gun damage")) {
                 bonus += mod.getAmount();
             }
         }
 
-// Final bullet damage = gun base + player/equipment bonuses
-        bullet.setDamage(gunItem.getWeaponDamage() + (float) bonus);
+        bullet.setDamage(damage + (float) bonus);
 
-        double forwardOffset = 0.5;
+        // Bullet position / shooting
+        double forwardOffset = 0.8;
         double rightOffset = 0.0;
         double upOffset = -0.1;
 
@@ -100,15 +115,7 @@ public class GunBurstHandler {
         dz += Math.sin(yawRad) * rightOffset;
 
         bullet.setPos(player.getX() + dx, player.getEyeY() + dy, player.getZ() + dz);
-
-        bullet.shootFromRotation(
-                player,
-                player.getXRot(),
-                player.getYRot(),
-                0.0F,
-                3.0F,
-                1.0F
-        );
+        bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.0F, 1.0F);
 
         level.addFreshEntity(bullet);
     }
