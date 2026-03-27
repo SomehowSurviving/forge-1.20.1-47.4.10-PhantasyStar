@@ -33,6 +33,9 @@ public class ModTags {
         public static final TagKey<Item> DEVIL_WEAPONS = ItemTags.create(
                 new ResourceLocation("phantasystar", "devil_weapons")
         );
+        public static final TagKey<Item> DIM_WEAPONS = ItemTags.create(
+                new ResourceLocation("phantasystar", "dim_weapons")
+        );
         public static final TagKey<Item> DRAIN_WEAPONS = ItemTags.create(
                 new ResourceLocation("phantasystar", "drain_weapons")
         );
@@ -69,11 +72,20 @@ public class ModTags {
         public static final TagKey<Item> LORD_WEAPONS = ItemTags.create(
                 new ResourceLocation("phantasystar", "lord_weapons")
         );
+        public static final TagKey<Item> MASTER_WEAPONS = ItemTags.create(
+                new ResourceLocation("phantasystar", "master_weapons")
+        );
         public static final TagKey<Item> MIND_WEAPONS = ItemTags.create(
                 new ResourceLocation("phantasystar", "mind_weapons")
         );
+        public static final TagKey<Item> SEIZE_WEAPONS = ItemTags.create(
+                new ResourceLocation("phantasystar", "seize_weapons")
+        );
         public static final TagKey<Item> SOUL_WEAPONS = ItemTags.create(
                 new ResourceLocation("phantasystar", "soul_weapons")
+        );
+        public static final TagKey<Item> SNOW_RIFLE_WEAPONS = ItemTags.create(
+                new ResourceLocation("phantasystar", "snow_rifle_weapons")
         );
         public static final TagKey<Item> SPIRIT_WEAPONS = ItemTags.create(
                 new ResourceLocation("phantasystar", "spirit_weapons")

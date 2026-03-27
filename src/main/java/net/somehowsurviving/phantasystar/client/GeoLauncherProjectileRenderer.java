@@ -24,12 +24,10 @@ public class GeoLauncherProjectileRenderer extends GeoEntityRenderer<LauncherPro
         Vec3 motion = entity.getDeltaMovement();
         if (!motion.equals(Vec3.ZERO)) {
             Vec3 look = motion.normalize();
-
-            // Compute yaw & pitch in degrees
+            
             float yaw = (float) Math.toDegrees(Math.atan2(look.x, look.z));
             float pitch = (float) Math.toDegrees(Math.asin(look.y));
 
-            // Use Quaternionf to rotate along X and Y
             Quaternionf q = new Quaternionf().rotateY((float)Math.toRadians(yaw)).rotateX((float)Math.toRadians(-pitch));
             matrixStack.mulPose(q);
         }

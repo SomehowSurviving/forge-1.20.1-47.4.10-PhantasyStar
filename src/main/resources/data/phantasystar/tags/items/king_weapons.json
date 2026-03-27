@@ -1,5 +1,7 @@
 {
   "replace": false,
   "values": [
+    "phantasystar:db_master_raven",
+    "phantasystar:db_last_swan"
   ]
 }

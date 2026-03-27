@@ -41,8 +41,8 @@ public class StatusHealItem extends Item {
                         player.getZ(),
                         SoundEvents.AMETHYST_CLUSTER_HIT,
                         SoundSource.PLAYERS,
-                        1.0F,
-                        1.0F
+                        1.0f,
+                        1.0f
                     );
             }
         }

@@ -1,6 +1,8 @@
 package net.somehowsurviving.phantasystar.events;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -12,6 +14,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.somehowsurviving.phantasystar.entities.BulletEntity;
+import net.somehowsurviving.phantasystar.item.ModItems;
 import net.somehowsurviving.phantasystar.item.custom.GunItem;
 import net.somehowsurviving.phantasystar.item.custom.SpecialRollGunItem;
 
@@ -36,7 +39,7 @@ public class GunBurstHandler {
         int timer = data.getInt("burst_timer");
         int delay = data.getInt("burst_delay");
 
-        // If finished, clean up
+        // clean up data
         if (shots <= 0) {
             data.remove("burst_shots");
             data.remove("burst_timer");
@@ -53,6 +56,9 @@ public class GunBurstHandler {
         ItemStack weapon = ItemStack.of(data.getCompound("burst_weapon"));
 
         fireBullet(player, weapon);
+
+        level.playSound(null, player.getX(), player.getY(), player.getZ(),
+                SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.PLAYERS, 1.0F, 1.0F);
 
         data.putInt("burst_shots", shots - 1);
         data.putInt("burst_timer", delay);
@@ -78,7 +84,6 @@ public class GunBurstHandler {
             damage = s.getWeaponDamage();
             bullet = (BulletEntity) bulletType.create(level);
         }
-        // Not a valid gun
         else {
             player.getPersistentData().remove("burst_shots");
             return;
@@ -89,7 +94,7 @@ public class GunBurstHandler {
         bullet.setOwner(player);
         bullet.setWeapon(stack.copy());
 
-        // Calculate bonus damage from player attributes
+        // may be unnecessary after another fix for damage
         double bonus = 0;
         for (AttributeModifier mod : player.getAttribute(Attributes.ATTACK_DAMAGE).getModifiers()) {
             if (!mod.getName().equals("Gun damage")) {
@@ -99,10 +104,13 @@ public class GunBurstHandler {
 
         bullet.setDamage(damage + (float) bonus);
 
-        // Bullet position / shooting
-        double forwardOffset = 0.8;
-        double rightOffset = 0.0;
+        Item mainItem = player.getMainHandItem().getItem();
+        boolean isSingle =
+                mainItem == ModItems.LAST_SWAN.get() || mainItem == ModItems.MASTER_RAVEN.get();
+
+        double forwardOffset = 0.9;
         double upOffset = -0.1;
+        double rightOffset = isSingle ? -0.2 : 0.0;
 
         float yawRad = (float) Math.toRadians(player.getYRot());
         float pitchRad = (float) Math.toRadians(player.getXRot());

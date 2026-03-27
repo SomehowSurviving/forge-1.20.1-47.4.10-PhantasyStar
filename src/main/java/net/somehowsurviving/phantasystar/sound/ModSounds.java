@@ -15,6 +15,11 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> MATE_ITEM_CONSUME = registerSoundEvents("mate_item_consume");
     public static final RegistryObject<SoundEvent> BUTTON_PRESS = registerSoundEvents("button_press");
     public static final RegistryObject<SoundEvent> RARE_DROP = registerSoundEvents("rare_drop");
+    public static final RegistryObject<SoundEvent> HANDGUN_FIRE = registerSoundEvents("handgun_fire");
+    public static final RegistryObject<SoundEvent> RIFLE_FIRE = registerSoundEvents("rifle_fire");
+    public static final RegistryObject<SoundEvent> MECHGUN_FIRE = registerSoundEvents("mechgun_fire");
+    public static final RegistryObject<SoundEvent> SHOTGUN_FIRE = registerSoundEvents("shotgun_fire");
+    public static final RegistryObject<SoundEvent> LAUNCHER_FIRE = registerSoundEvents("launcher_fire");
 
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {

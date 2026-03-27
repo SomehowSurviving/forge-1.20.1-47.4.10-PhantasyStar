@@ -1,9 +1,14 @@
 package net.somehowsurviving.phantasystar.item.custom;
 
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 public interface IKillTrackerItem {
 
@@ -25,6 +30,19 @@ public interface IKillTrackerItem {
     default void evolve(ItemStack stack, Player player) {
 
         ItemStack result = getEvolutionResult(stack);
+
+        Level level = player.level();
+
+        level.playSound(
+                null, // null = play for everyone nearby
+                player.getX(),
+                player.getY(),
+                player.getZ(),
+                SoundEvents.PLAYER_LEVELUP,
+                SoundSource.PLAYERS,
+                3.0f,
+                1.0f
+        );
 
         if (player.getMainHandItem() == stack) {
             player.setItemInHand(InteractionHand.MAIN_HAND, result);

@@ -176,6 +176,9 @@ public class CombatEvents {
             case "blizzard":
                 handleBlizzard(target);
                 break;
+            case "snow":
+                handleSnowRifle(target);
+                break;
 
             // Powerful - Consume Type
             case "berserk":
@@ -523,6 +526,15 @@ public class CombatEvents {
     private static void handleBlizzard(LivingEntity target) {
 
         if (RANDOM.nextDouble() > 0.40) return;
+
+        int duration = 60;
+        target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, duration, 255));
+        target.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, duration, 255));
+        target.setTicksFrozen(140);
+    }
+    private static void handleSnowRifle(LivingEntity target) {
+
+        if (RANDOM.nextDouble() > 0.99) return;
 
         int duration = 60;
         target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, duration, 255));

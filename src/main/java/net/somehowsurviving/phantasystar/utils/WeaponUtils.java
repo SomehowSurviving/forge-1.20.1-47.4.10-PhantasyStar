@@ -44,6 +44,7 @@ public class WeaponUtils {
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.CHARGE_WEAPONS).contains(stack.getItem())) return "charge";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.DEMON_WEAPONS).contains(stack.getItem())) return "demon";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.DEVIL_WEAPONS).contains(stack.getItem())) return "devil";
+        if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.DIM_WEAPONS).contains(stack.getItem())) return "dim";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.DRAIN_WEAPONS).contains(stack.getItem())) return "drain";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.FILL_WEAPONS).contains(stack.getItem())) return "fill";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.FLAME_WEAPONS).contains(stack.getItem())) return "flame";
@@ -56,7 +57,10 @@ public class WeaponUtils {
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.HOLD_WEAPONS).contains(stack.getItem())) return "hold";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.KING_WEAPONS).contains(stack.getItem())) return "king";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.LORD_WEAPONS).contains(stack.getItem())) return "lord";
+        if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.MASTER_WEAPONS).contains(stack.getItem())) return "master";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.MIND_WEAPONS).contains(stack.getItem())) return "mind";
+        if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.SEIZE_WEAPONS).contains(stack.getItem())) return "seize";
+        if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.SNOW_RIFLE_WEAPONS).contains(stack.getItem())) return "snow";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.SOUL_WEAPONS).contains(stack.getItem())) return "soul";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.SPIRIT_WEAPONS).contains(stack.getItem())) return "spirit";
         if (ForgeRegistries.ITEMS.tags().getTag(ModTags.Items.SUPERCHARGE_WEAPONS).contains(stack.getItem())) return "supercharge";

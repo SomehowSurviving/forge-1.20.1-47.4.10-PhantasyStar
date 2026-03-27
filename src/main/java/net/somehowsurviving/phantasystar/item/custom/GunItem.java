@@ -7,6 +7,9 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -24,6 +27,7 @@ import net.somehowsurviving.phantasystar.client.GeoGunRenderer;
 import net.somehowsurviving.phantasystar.entities.BulletEntity;
 import net.somehowsurviving.phantasystar.entities.LauncherProjectileEntity;
 import net.minecraft.world.entity.EntityType;
+import net.somehowsurviving.phantasystar.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -33,7 +37,7 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.RenderUtils;
 
 import java.util.List;
-import java.util.Set;
+import java.util.UUID;
 import java.util.function.Consumer;
 
 public class GunItem extends Item implements GeoItem {
@@ -43,6 +47,7 @@ public class GunItem extends Item implements GeoItem {
     private final RegistryObject<EntityType<BulletEntity>> bulletType;
     private final RegistryObject<EntityType<LauncherProjectileEntity>> rocketType;
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private static final UUID GUN_DAMAGE_UUID = UUID.fromString("123e4567-e89b-12d3-a456-426614174000");
 
     public GunItem(Properties properties, GunType gunType, float baseDamage, RegistryObject<EntityType<BulletEntity>> bulletType, RegistryObject<EntityType<LauncherProjectileEntity>> rocketType) {
         super(properties);
@@ -67,22 +72,10 @@ public class GunItem extends Item implements GeoItem {
         return rocketType.get();
     }
 
-    /* Once LS, MR, MG, and OS are in here.
-    private static final Set<Item> SINGLE_MECHGUNS = Set.of(
-            ModItems.LAST_SWAN.get(),
-            ModItems.MASTER_RAVEN.get(),
-            ModItems.GULD.get(),
-            ModItems.MILLA.get()
-    );
-
-    /* This will handle Dual Bird when they are added
     private boolean isSpecialPair(Item a, Item b) {
         return (a == ModItems.DB_LAST_SWAN.get() && b == ModItems.DB_MASTER_RAVEN.get()) ||
-                (a == ModItems.DB_MASTER_RAVEN.get() && b == ModItems.DB_LAST_SWAN.get()) ||
-                (a == ModItems.GM_GULD.get() && b == ModItems.GM_MILLA.get()) ||
-                (a == ModItems.GM_MILLA.get() && b == ModItems.GM_GULD.get());
+                (a == ModItems.DB_MASTER_RAVEN.get() && b == ModItems.DB_LAST_SWAN.get());
     }
-    */
 
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot slot) {
@@ -90,7 +83,12 @@ public class GunItem extends Item implements GeoItem {
         if (slot == EquipmentSlot.MAINHAND) {
             builder.put(
                     Attributes.ATTACK_DAMAGE,
-                    new AttributeModifier("Gun damage", baseDamage, AttributeModifier.Operation.ADDITION)
+                    new AttributeModifier(
+                            GUN_DAMAGE_UUID,
+                            "Gun damage",
+                            baseDamage,
+                            AttributeModifier.Operation.ADDITION
+                    )
             );
         }
         return builder.build();
@@ -100,11 +98,13 @@ public class GunItem extends Item implements GeoItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
 
+        // Only shoot on the server side
         if (!level.isClientSide) {
-            shoot(level, player, stack);
+            shoot(level, player, stack); // your existing shooting logic
         }
 
-        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide());
+        // Return CONSUME so the hand doesn’t animate or swing
+        return InteractionResultHolder.pass(stack);
     }
 
     private void shoot(Level level, Player player, ItemStack stack) {
@@ -112,19 +112,32 @@ public class GunItem extends Item implements GeoItem {
         switch (gunType) {
             case HANDGUN -> fireHandgun(level, player, stack);
             case RIFLE -> fireRifle(level, player, stack);
-            case MECHGUN -> fireMechgun(level, player, stack);
+            case MECHGUN -> fireMechgun(player, stack);
             case SHOTGUN -> fireShotgun(level, player, stack);
             case LAUNCHER -> fireLauncher(level, player, stack);
         }
         double atkSpeed = Math.max(0.1, player.getAttribute(Attributes.ATTACK_SPEED).getValue());
 
         double ratio = switch (gunType) {
-            case HANDGUN -> 56.0;
-            case RIFLE -> 64.0;
-            case MECHGUN -> 60.0;
-            case SHOTGUN -> 84.0;
-            case LAUNCHER -> 100.0;
+            case HANDGUN -> 72.0;
+            case RIFLE -> 80.0;
+            case MECHGUN -> 68.0;
+            case SHOTGUN -> 120.0;
+            case LAUNCHER -> 124.0;
         };
+
+        SoundEvent sound = switch (gunType) {
+            case HANDGUN -> SoundEvents.ARROW_SHOOT;
+            case RIFLE -> SoundEvents.GENERIC_EXPLODE;
+            case MECHGUN -> null;
+            case SHOTGUN -> SoundEvents.CHAIN_BREAK;
+            case LAUNCHER -> SoundEvents.BLAZE_DEATH;
+        };
+
+        if (sound != null) {
+            level.playSound(null, player.getX(), player.getY(), player.getZ(),
+                    sound, SoundSource.PLAYERS, 1.0f, 1.0f);
+        }
 
         int cooldown = (int) Math.round(ratio / atkSpeed);
         player.getCooldowns().addCooldown(this, cooldown);
@@ -166,7 +179,7 @@ public class GunItem extends Item implements GeoItem {
         dz += Math.sin(yawRad) * rightOffset;
 
         bullet.setPos(player.getX() + dx, player.getEyeY() + dy, player.getZ() + dz);
-        bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
+        bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 2.5f, 1.0f);
 
         level.addFreshEntity(bullet);
     }
@@ -180,8 +193,8 @@ public class GunItem extends Item implements GeoItem {
         float finalDamage = getWeaponDamage() + getPlayerAttackBonuses(player);
         bullet.setDamage(finalDamage);
 
-        double forwardOffset = 0.5;
-        double rightOffset = 0.2;
+        double forwardOffset = 0.9;
+        double rightOffset = -0.2;
         double upOffset = -0.1;
 
         float yawRad = (float) Math.toRadians(player.getYRot());
@@ -195,20 +208,24 @@ public class GunItem extends Item implements GeoItem {
         dz += Math.sin(yawRad) * rightOffset;
 
         bullet.setPos(player.getX() + dx, player.getEyeY() + dy, player.getZ() + dz);
-        bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 3.0F, 0.5F);
+        bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 3.0f, 0.5f);
 
         level.addFreshEntity(bullet);
     }
 
-    private void fireMechgun(Level level, Player player, ItemStack stack) {
+    private void fireMechgun(Player player, ItemStack stack) {
         CompoundTag data = player.getPersistentData();
+
 
         Item mainItem = player.getMainHandItem().getItem();
         Item offItem  = player.getOffhandItem().getItem();
-        // Drop in  && !isSpecialPair(mainItem, offItem) after offItem once dual bird is added
-        // if (!SINGLE_MECHGUNS.contains(mainItem)) {
-        if (mainItem != offItem) return;
-        // }
+
+        boolean isSingle =
+                mainItem == ModItems.LAST_SWAN.get() || mainItem == ModItems.MASTER_RAVEN.get();
+
+        if (!isSingle) {
+            if (mainItem != offItem && !isSpecialPair(mainItem, offItem)) return;
+        }
 
         data.putInt("burst_shots", 3);
         data.putInt("burst_timer", 0);
@@ -247,7 +264,7 @@ public class GunItem extends Item implements GeoItem {
 
             double forwardOffset = 0.5;
             double rightOffset = 0.2;
-            double upOffset = -0.1;
+            double upOffset = -0.2;
 
             float yawRad = (float) Math.toRadians(player.getYRot());
             float pitchRad = (float) Math.toRadians(player.getXRot());
@@ -265,9 +282,9 @@ public class GunItem extends Item implements GeoItem {
                     player,
                     player.getXRot(),
                     player.getYRot() + yawOffset,
-                    0.0F,
-                    2.0F,
-                    0.0F
+                    0.0f,
+                    2.0f,
+                    0.0f
             );
 
             level.addFreshEntity(bullet);
@@ -298,7 +315,7 @@ public class GunItem extends Item implements GeoItem {
 
         rocket.setPos(player.getX() + dx, player.getEyeY() + dy, player.getZ() + dz);
 
-        rocket.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 0.5F);
+        rocket.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 1.5f, 0.5f);
 
         level.addFreshEntity(rocket);
     }

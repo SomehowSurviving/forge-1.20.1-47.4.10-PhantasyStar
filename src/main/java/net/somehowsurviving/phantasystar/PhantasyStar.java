@@ -27,6 +27,10 @@ import net.somehowsurviving.phantasystar.sound.ModSounds;
 import org.slf4j.Logger;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(PhantasyStar.MOD_ID)
 public class PhantasyStar {
@@ -53,6 +57,8 @@ public class PhantasyStar {
 
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
+
+    private static final Map<UUID, Integer> lingerMap = new HashMap<>();
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
