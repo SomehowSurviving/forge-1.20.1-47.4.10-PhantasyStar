@@ -22,6 +22,6 @@ public class GeoMagModel extends GeoModel<MagItem> {
     @Override
     public ResourceLocation getAnimationResource(MagItem animatable) {
         ResourceLocation key = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(animatable);
-        return new ResourceLocation(PhantasyStar.MOD_ID, "animations/item/" + key.getPath() + ".animation.json");
+        return new ResourceLocation(PhantasyStar.MOD_ID, "animations/item/mag/" + key.getPath() + ".animation.json");
     }
 }

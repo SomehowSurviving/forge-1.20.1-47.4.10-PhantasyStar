@@ -1,0 +1,99 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    128,
+    128
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        -2.5,
+        -9.25
+      ],
+      "scale": [
+        0.78,
+        0.85,
+        0.93
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        -2.5,
+        -9.25
+      ],
+      "scale": [
+        0.78,
+        0.85,
+        0.93
+      ]
+    },
+    "firstperson_righthand": {
+      "translation": [
+        1,
+        -1,
+        0.25
+      ],
+      "scale": [
+        0.94,
+        0.94,
+        0.84
+      ]
+    },
+    "firstperson_lefthand": {
+      "translation": [
+        1,
+        -1,
+        0.25
+      ],
+      "scale": [
+        0.94,
+        0.94,
+        0.84
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "gui": {
+      "rotation": [
+        90,
+        45,
+        -90
+      ],
+      "translation": [
+        -1.5,
+        -2.5,
+        0
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "head": {
+      "translation": [
+        0,
+        4.25,
+        0
+      ]
+    },
+    "on_shelf": {
+      "rotation": [
+        90,
+        0,
+        0
+      ]
+    }
+  },
+  "textures": {
+    "particle": "phantasystar:item/justy"
+  }
+}

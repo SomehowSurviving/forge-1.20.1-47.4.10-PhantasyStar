@@ -31,6 +31,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ANTIPARALYSIS.get());
                         output.accept(ModItems.SOL_ATOMIZER.get());
                         output.accept(ModItems.STAR_ATOMIZER.get());
+                        output.accept(ModItems.MONOGRINDER.get());
+                        output.accept(ModItems.DIGRINDER.get());
+                        output.accept(ModItems.TRIGRINDER.get());
                         // Weapons
                         output.accept(ModItems.SABER.get());
                         output.accept(ModItems.BRAND.get());
@@ -53,6 +56,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BERDYS.get());
                         output.accept(ModItems.GUNGNIR.get());
                         output.accept(ModItems.DB_SABER.get());
+                        output.accept(ModItems.KALADBOLG.get());
                         output.accept(ModItems.FLOWEN_SWORD_REPLICA.get());
                         output.accept(ModItems.FLOWEN_SWORD_3084.get());
                         output.accept(ModItems.MUSASHI.get());
@@ -100,6 +104,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.LAUNCHER.get());
                         output.accept(ModItems.ARMS.get());
                         output.accept(ModItems.VISK.get());
+                        output.accept(ModItems.WALS.get());
+                        output.accept(ModItems.JUSTY.get());
                         output.accept(ModItems.MASTER_RAVEN.get());
                         output.accept(ModItems.LAST_SWAN.get());
                         output.accept(ModItems.DB_MASTER_RAVEN.get());
@@ -121,7 +127,19 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.VRITRA_MAG.get());
                         output.accept(ModItems.RUDRA_MAG.get());
                         output.accept(ModItems.MITRA_MAG.get());
+                        output.accept(ModItems.NAMUCI_MAG.get());
+                        output.accept(ModItems.APSARAS_MAG.get());
+                        output.accept(ModItems.BANA_MAG.get());
                         output.accept(ModItems.VARAHA_MAG.get());
+                        // Mag Kits
+                        output.accept(ModItems.VARUNA_KIT.get());
+                        output.accept(ModItems.KALKI_KIT.get());
+                        output.accept(ModItems.VRITRA_KIT.get());
+                        output.accept(ModItems.RUDRA_KIT.get());
+                        output.accept(ModItems.MITRA_KIT.get());
+                        output.accept(ModItems.NAMUCI_KIT.get());
+                        output.accept(ModItems.APSARAS_KIT.get());
+                        output.accept(ModItems.VARAHA_KIT.get());
                         // Units
                         output.accept(ModItems.WARRIOR_BODY.get());
                         output.accept(ModItems.GENERAL_BODY.get());
@@ -166,8 +184,12 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.TEKKER_TABLE.get());
 
                         output.accept(ModBlocks.MINES_HEX_FLOOR.get());
+                        output.accept(ModBlocks.MINES_HEX_FLOOR_BORDER_CORNER.get());
                         output.accept(ModBlocks.MINES_OCT_FLOOR.get());
-                        output.accept(ModBlocks.SOUND_BLOCK.get());
+                        output.accept(ModBlocks.MINES_OCT_FLOOR_BORDER_1.get());
+                        output.accept(ModBlocks.MINES_OCT_FLOOR_BORDER_2.get());
+                        output.accept(ModBlocks.MINES_OCT_FLOOR_BORDER_CORNER.get());
+                        output.accept(ModBlocks.MINES_WHITE_FLOOR_BORDER.get());
                     })
                     .build());
 

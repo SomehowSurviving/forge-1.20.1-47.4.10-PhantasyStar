@@ -14,15 +14,70 @@ import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.RenderUtils;
 import net.minecraft.world.item.ItemStack;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.function.Consumer;
 
-public class GeoSwordItem extends SwordItem implements GeoItem {
-    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+import static net.somehowsurviving.phantasystar.utils.GrinderUtils.getGrind;
 
-    public GeoSwordItem(Tier tier, int attackDamage, float attackSpeed, Properties properties) {
+public class GeoSwordItem extends SwordItem implements GeoItem, GrindableWeapon {
+    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private static final UUID GRIND_MODIFIER_UUID = UUID.fromString("BC5A6EF0-1234-4F56-ABCD-9876543210FE");
+    private final int maxGrind;
+
+
+    public GeoSwordItem(Tier tier, int attackDamage, float attackSpeed, Properties properties, int maxGrind) {
         super(tier, attackDamage, attackSpeed, properties);
+        this.maxGrind = maxGrind;
+    }
+
+    @Override
+    public int getMaxGrind(ItemStack stack) {
+        return this.maxGrind;
+    }
+
+    @Override
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
+        Multimap<Attribute, AttributeModifier> modifiers = super.getDefaultAttributeModifiers(slot);
+
+        if (slot == EquipmentSlot.MAINHAND) {
+            ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+            builder.putAll(modifiers);
+
+            float currentGrind = (float) getGrind(stack) / 10f;
+
+            builder.put(Attributes.ATTACK_DAMAGE,
+                    new AttributeModifier(
+                            GRIND_MODIFIER_UUID,
+                            "Grind bonus",
+                            currentGrind,
+                            AttributeModifier.Operation.ADDITION
+                    ));
+
+            return builder.build();
+        }
+
+        return modifiers;
+    }
+
+    @Override
+    public Component getName(ItemStack stack) {
+
+        Component baseName = super.getName(stack);
+
+        int grind = getGrind(stack);
+        if (grind > 0) {
+            return Component.literal(baseName.getString() + " +" + grind);
+        }
+
+        return baseName;
     }
 
     @Override

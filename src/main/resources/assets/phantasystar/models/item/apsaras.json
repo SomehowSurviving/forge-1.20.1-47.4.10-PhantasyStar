@@ -1,0 +1,111 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    32,
+    32
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        -112.5,
+        2,
+        180
+      ],
+      "translation": [
+        0,
+        -2.5,
+        -5.5
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        -112.5,
+        2,
+        -180
+      ],
+      "translation": [
+        0,
+        -2.5,
+        -5.5
+      ]
+    },
+    "firstperson_righthand": {
+      "translation": [
+        1.5,
+        -1.75,
+        0
+      ]
+    },
+    "firstperson_lefthand": {
+      "translation": [
+        1.5,
+        -1.75,
+        0
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        -4.5,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        23,
+        0
+      ],
+      "translation": [
+        -0.75,
+        -8.5,
+        0
+      ],
+      "scale": [
+        1.25,
+        1.16,
+        1.25
+      ]
+    },
+    "head": {
+      "translation": [
+        0,
+        -27.75,
+        9
+      ],
+      "scale": [
+        2,
+        2,
+        2
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        -6.25,
+        0
+      ]
+    },
+    "on_shelf": {
+      "rotation": [
+        -180,
+        180,
+        -180
+      ],
+      "scale": [
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "textures": {
+    "particle": "phantasystar:item/apsaras"
+  }
+}

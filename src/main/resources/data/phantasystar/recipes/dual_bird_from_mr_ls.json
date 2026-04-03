@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "phantasystar:master_raven"
+    },
+    {
+      "item": "phantasystar:last_swan"
+    }
+  ],
+  "result": {
+    "item": "phantasystar:dual_bird_container",
+    "count": 1
+  }
+}

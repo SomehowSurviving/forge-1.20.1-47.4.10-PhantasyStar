@@ -14,7 +14,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.somehowsurviving.phantasystar.PhantasyStar;
 import net.somehowsurviving.phantasystar.block.custom.HorizPatternBlock;
-import net.somehowsurviving.phantasystar.block.custom.SoundBlock;
 import net.somehowsurviving.phantasystar.block.custom.TekkerTableBlock;
 import net.somehowsurviving.phantasystar.item.ModItems;
 
@@ -39,12 +38,19 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> MINES_OCT_FLOOR = registerBlock("mines_oct_floor",
             () -> new HorizPatternBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
+    public static final RegistryObject<Block> MINES_OCT_FLOOR_BORDER_CORNER = registerBlock("mines_oct_floor_border_corner",
+            () -> new HorizPatternBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
+    public static final RegistryObject<Block> MINES_OCT_FLOOR_BORDER_1 = registerBlock("mines_oct_floor_border_1",
+            () -> new HorizPatternBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
+    public static final RegistryObject<Block> MINES_OCT_FLOOR_BORDER_2 = registerBlock("mines_oct_floor_border_2",
+            () -> new HorizPatternBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
+    public static final RegistryObject<Block> MINES_WHITE_FLOOR_BORDER = registerBlock("mines_white_floor_border",
+            () -> new HorizPatternBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
+    public static final RegistryObject<Block> MINES_HEX_FLOOR_BORDER_CORNER = registerBlock("mines_hex_floor_border_corner",
+            () -> new HorizPatternBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
 
     public static final RegistryObject<Block> PHOTON_CRYSTAL = registerBlock("photon_crystal",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER)));
-
-    public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
-            () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     public static final RegistryObject<Block> PHOTON_CRYSTAL_ORE = registerBlock("photon_crystal_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)

@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"all": "phantasystar:block/mines_oct_floor_border_corner"
+	}
+}

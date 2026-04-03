@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+      "## ",
+      "## ",
+      "   "
+  ],
+  "key": {
+    "#": {
+      "item": "phantasystar:dimate"
+    }
+  },
+  "result": {
+    "item": "phantasystar:trimate"
+  }
+}

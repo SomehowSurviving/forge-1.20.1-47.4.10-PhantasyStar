@@ -40,7 +40,9 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-public class GunItem extends Item implements GeoItem {
+import static net.somehowsurviving.phantasystar.utils.GrinderUtils.getGrind;
+
+public class GunItem extends Item implements GeoItem, GrindableWeapon {
 
     private final GunType gunType;
     private final float baseDamage;
@@ -48,13 +50,21 @@ public class GunItem extends Item implements GeoItem {
     private final RegistryObject<EntityType<LauncherProjectileEntity>> rocketType;
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
     private static final UUID GUN_DAMAGE_UUID = UUID.fromString("123e4567-e89b-12d3-a456-426614174000");
+    private static final UUID GRIND_MODIFIER_UUID = UUID.fromString("B0C7F3E0-1234-4F56-ABCD-9876543210FE");
+    private final int maxGrind;
 
-    public GunItem(Properties properties, GunType gunType, float baseDamage, RegistryObject<EntityType<BulletEntity>> bulletType, RegistryObject<EntityType<LauncherProjectileEntity>> rocketType) {
+    public GunItem(Properties properties, GunType gunType, float baseDamage, RegistryObject<EntityType<BulletEntity>> bulletType, RegistryObject<EntityType<LauncherProjectileEntity>> rocketType, int maxGrind) {
         super(properties);
         this.gunType = gunType;
         this.baseDamage = baseDamage;
         this.bulletType = bulletType;
         this.rocketType = rocketType;
+        this.maxGrind = maxGrind;
+    }
+
+    @Override
+    public int getMaxGrind(ItemStack stack) {
+        return this.maxGrind;
     }
 
     public GunType getGunType() {
@@ -78,8 +88,10 @@ public class GunItem extends Item implements GeoItem {
     }
 
     @Override
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot slot) {
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+        builder.putAll(super.getDefaultAttributeModifiers(slot));
+
         if (slot == EquipmentSlot.MAINHAND) {
             builder.put(
                     Attributes.ATTACK_DAMAGE,
@@ -90,7 +102,19 @@ public class GunItem extends Item implements GeoItem {
                             AttributeModifier.Operation.ADDITION
                     )
             );
+
+            float currentGrind = (float) getGrind(stack) / 10f;
+            builder.put(
+                    Attributes.ATTACK_DAMAGE,
+                    new AttributeModifier(
+                            GRIND_MODIFIER_UUID,
+                            "Grind bonus",
+                            currentGrind,
+                            AttributeModifier.Operation.ADDITION
+                    )
+            );
         }
+
         return builder.build();
     }
 
@@ -98,12 +122,10 @@ public class GunItem extends Item implements GeoItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
 
-        // Only shoot on the server side
         if (!level.isClientSide) {
-            shoot(level, player, stack); // your existing shooting logic
+            shoot(level, player, stack);
         }
 
-        // Return CONSUME so the hand doesn’t animate or swing
         return InteractionResultHolder.pass(stack);
     }
 
@@ -147,7 +169,7 @@ public class GunItem extends Item implements GeoItem {
         double bonus = 0;
 
         for (AttributeModifier mod : player.getAttribute(Attributes.ATTACK_DAMAGE).getModifiers()) {
-            if (!mod.getName().equals("Gun damage")) { // ignore this gun
+            if (!mod.getName().equals("Gun damage")) {
                 bonus += mod.getAmount();
             }
         }
@@ -231,7 +253,7 @@ public class GunItem extends Item implements GeoItem {
         data.putInt("burst_timer", 0);
         data.putInt("burst_delay", 2);
 
-        // Save the weapon AND the bullet type key
+        // Save the weapon and bullet type to pass to the bullet for special activation
         ItemStack copy = stack.copy();
         CompoundTag nbt = copy.save(new CompoundTag());
 
@@ -240,7 +262,7 @@ public class GunItem extends Item implements GeoItem {
 
         data.put("burst_weapon", nbt);
 
-        player.getCooldowns().addCooldown(this, 6); // 3 shots * 2 delay
+        player.getCooldowns().addCooldown(this, 6);
     }
 
     private void fireShotgun(Level level, Player player, ItemStack stack) {
@@ -318,6 +340,19 @@ public class GunItem extends Item implements GeoItem {
         rocket.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0f, 1.5f, 0.5f);
 
         level.addFreshEntity(rocket);
+    }
+
+    @Override
+    public Component getName(ItemStack stack) {
+
+        Component baseName = super.getName(stack);
+
+        int grind = getGrind(stack);
+        if (grind > 0) {
+            return Component.literal(baseName.getString() + " +" + grind);
+        }
+
+        return baseName;
     }
 
     @Override

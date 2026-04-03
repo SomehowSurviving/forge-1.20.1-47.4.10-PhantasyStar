@@ -1,10 +1,15 @@
 package net.somehowsurviving.phantasystar.item.custom;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
@@ -14,12 +19,47 @@ import net.somehowsurviving.phantasystar.utils.WeaponUtils;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Random;
+import java.util.UUID;
 
-public class SpecialRollModWeapon extends SwordItem {
+import static net.somehowsurviving.phantasystar.utils.GrinderUtils.getGrind;
 
-    public SpecialRollModWeapon(Tier pTier, int attackDamage, float pAttackSpeedModifier, Properties pProperties) {
+public class SpecialRollModWeapon extends SwordItem implements GrindableWeapon {
+
+    private static final UUID GRIND_MODIFIER_UUID = UUID.fromString("A1B2C3D4-5678-4E90-ABCD-1234567890EF");
+    private final int maxGrind;
+
+    public SpecialRollModWeapon(Tier pTier, int attackDamage, float pAttackSpeedModifier, Properties pProperties, int maxGrind) {
         super(pTier, attackDamage, pAttackSpeedModifier, pProperties);
+        this.maxGrind = maxGrind;
+    }
+
+    @Override
+    public int getMaxGrind(ItemStack stack) {
+        return this.maxGrind;
+    }
+
+    @Override
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
+        Multimap<Attribute, AttributeModifier> modifiers = super.getDefaultAttributeModifiers(slot);
+
+        if (slot == EquipmentSlot.MAINHAND) {
+            ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+            builder.putAll(modifiers);
+
+            float currentGrind = (float) getGrind(stack) / 10f;
+
+            builder.put(Attributes.ATTACK_DAMAGE,
+                    new AttributeModifier(
+                            GRIND_MODIFIER_UUID,
+                            "Grind bonus",
+                            currentGrind,
+                            AttributeModifier.Operation.ADDITION
+                    ));
+
+            return builder.build();
+        }
+
+        return modifiers;
     }
 
     @Override
@@ -37,24 +77,25 @@ public class SpecialRollModWeapon extends SwordItem {
 
     @Override
     public Component getName(ItemStack stack) {
-
         Component baseName = super.getName(stack);
-
         CompoundTag tag = stack.getTag();
 
         if (tag != null && tag.contains("identified")) {
-
             boolean identified = tag.getBoolean("identified");
 
             if (!identified) {
-                return Component.literal("??? ").append(baseName).withStyle(ChatFormatting.AQUA);
+                baseName = Component.literal("??? ").append(baseName).withStyle(ChatFormatting.AQUA);
+            } else {
+                String special = tag.getString("special");
+                if (!special.isEmpty()) {
+                    baseName = Component.literal(capitalize(special) + " ").append(baseName).withStyle(ChatFormatting.WHITE);
+                }
             }
+        }
 
-            String special = tag.getString("special");
-
-            if (!special.isEmpty()) {
-                return Component.literal(capitalize(special) + " ").append(baseName).withStyle(ChatFormatting.WHITE);
-            }
+        int grind = getGrind(stack);
+        if (grind > 0) {
+            return Component.literal(baseName.getString() + " +" + grind);
         }
 
         return baseName;

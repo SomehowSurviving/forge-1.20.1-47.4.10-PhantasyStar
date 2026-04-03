@@ -2,6 +2,7 @@ package net.somehowsurviving.phantasystar.item;
 
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -21,6 +22,8 @@ import top.theillusivec4.curios.api.CuriosApi;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
+
+import static net.somehowsurviving.phantasystar.utils.GrinderUtils.getGrind;
 
 public class ModSlotArmorItem extends ArmorItem {
 
@@ -56,20 +59,30 @@ public class ModSlotArmorItem extends ArmorItem {
                 )
         );
 
-        CompoundTag tag = stack.getTag();
         int slots = stack.getTag().getInt("charm_slots");
 
         CuriosApi.getCuriosHelper().addSlotModifier(
-                modifiers,              // <- must be a mutable Multimap
+                modifiers,
                 "charm",
                 CHARM_SLOT_UUID,
                 slots,
                 AttributeModifier.Operation.ADDITION
         );
 
-        // Optionally add vanilla armor attributes here if needed
 
         return modifiers;
+    }
+
+    @Override
+    public Component getName(ItemStack stack) {
+        Component baseName = super.getName(stack);
+        int slots = stack.getTag().getInt("charm_slots");
+
+        if(slots > 0) {
+            Component.literal("").append(baseName).withStyle(ChatFormatting.AQUA);
+        }
+
+        return baseName;
     }
 
     @Override

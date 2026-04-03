@@ -96,6 +96,9 @@ public class PhantasyStar {
             CuriosRendererRegistry.register(ModItems.VRITRA_MAG.get(), () -> new MagItemCurioRenderer(1.0f, -0.2f, 0.75f, 0.4f, 0.4f, 0.4f, 180f, 180f));
             CuriosRendererRegistry.register(ModItems.RUDRA_MAG.get(), () -> new MagItemCurioRenderer(0.0f, 0.1f, 0.6f, 1.0f, 1.0f, 1.0f, 180f, 180f));
             CuriosRendererRegistry.register(ModItems.MITRA_MAG.get(), () -> new MagItemCurioRenderer(0.8f, 0.2f, 0.75f, 0.5f, 0.5f, 0.5f, 180f, 160f));
+            CuriosRendererRegistry.register(ModItems.NAMUCI_MAG.get(), () -> new MagItemCurioRenderer(1.2f, -0.2f, 0.85f, 0.4f, 0.4f, 0.4f, 180f, 180f));
+            CuriosRendererRegistry.register(ModItems.APSARAS_MAG.get(), () -> new MagItemCurioRenderer(0.0f, 0.3f, 0.4f, 1.2f, 1.2f, 1.0f, 180f, 0f));
+            CuriosRendererRegistry.register(ModItems.BANA_MAG.get(), () -> new MagItemCurioRenderer(0.6f, -0.1f, 0.85f, 1.0f, 1.0f, 1.0f, 180f, 180f));
             CuriosRendererRegistry.register(ModItems.VARAHA_MAG.get(), () -> new MagItemCurioRenderer(0.0f, 0.3f, 0.4f, 0.8f, 1.0f, 1.0f, 180f, 180f));
 
             EntityRenderers.register(ModEntities.BULLET_GREEN.get(), GeoBulletRenderer::new);

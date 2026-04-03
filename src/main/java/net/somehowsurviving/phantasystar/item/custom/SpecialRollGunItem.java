@@ -42,7 +42,9 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-public class SpecialRollGunItem extends Item implements GeoItem {
+import static net.somehowsurviving.phantasystar.utils.GrinderUtils.getGrind;
+
+public class SpecialRollGunItem extends Item implements GeoItem, GrindableWeapon {
 
     private final GunType gunType;
     private final float baseDamage;
@@ -50,13 +52,21 @@ public class SpecialRollGunItem extends Item implements GeoItem {
     private final RegistryObject<EntityType<LauncherProjectileEntity>> rocketType;
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
     private static final UUID GUN_DAMAGE_UUID = UUID.fromString("123e4567-e89b-12d3-a456-426614174000");
+    private static final UUID GRIND_MODIFIER_UUID = UUID.fromString("021FF3E0-1234-4F56-ABCD-9876543210FE");
+    private final int maxGrind;
 
-    public SpecialRollGunItem(Properties properties, GunType gunType, float baseDamage, RegistryObject<EntityType<BulletEntity>> bulletType, RegistryObject<EntityType<LauncherProjectileEntity>> rocketType) {
+    public SpecialRollGunItem(Properties properties, GunType gunType, float baseDamage, RegistryObject<EntityType<BulletEntity>> bulletType, RegistryObject<EntityType<LauncherProjectileEntity>> rocketType, int maxGrind) {
         super(properties);
         this.gunType = gunType;
         this.baseDamage = baseDamage;
         this.bulletType = bulletType;
         this.rocketType = rocketType;
+        this.maxGrind = maxGrind;
+    }
+
+    @Override
+    public int getMaxGrind(ItemStack stack) {
+        return this.maxGrind;
     }
 
     public GunType getGunType() {
@@ -75,8 +85,10 @@ public class SpecialRollGunItem extends Item implements GeoItem {
     }
 
     @Override
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot slot) {
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+        builder.putAll(super.getDefaultAttributeModifiers(slot));
+
         if (slot == EquipmentSlot.MAINHAND) {
             builder.put(
                     Attributes.ATTACK_DAMAGE,
@@ -87,7 +99,19 @@ public class SpecialRollGunItem extends Item implements GeoItem {
                             AttributeModifier.Operation.ADDITION
                     )
             );
+
+            float currentGrind = (float) getGrind(stack) / 10f;
+            builder.put(
+                    Attributes.ATTACK_DAMAGE,
+                    new AttributeModifier(
+                            GRIND_MODIFIER_UUID,
+                            "Grind bonus",
+                            currentGrind,
+                            AttributeModifier.Operation.ADDITION
+                    )
+            );
         }
+
         return builder.build();
     }
 
@@ -142,7 +166,7 @@ public class SpecialRollGunItem extends Item implements GeoItem {
         double bonus = 0;
 
         for (AttributeModifier mod : player.getAttribute(Attributes.ATTACK_DAMAGE).getModifiers()) {
-            if (!mod.getName().equals("Gun damage")) { // ignore this gun
+            if (!mod.getName().equals("Gun damage")) {
                 bonus += mod.getAmount();
             }
         }
@@ -367,24 +391,25 @@ public class SpecialRollGunItem extends Item implements GeoItem {
 
     @Override
     public Component getName(ItemStack stack) {
-
         Component baseName = super.getName(stack);
-
         CompoundTag tag = stack.getTag();
 
         if (tag != null && tag.contains("identified")) {
-
             boolean identified = tag.getBoolean("identified");
 
             if (!identified) {
-                return Component.literal("??? ").append(baseName).withStyle(ChatFormatting.AQUA);
+                baseName = Component.literal("??? ").append(baseName).withStyle(ChatFormatting.AQUA);
+            } else {
+                String special = tag.getString("special");
+                if (!special.isEmpty()) {
+                    baseName = Component.literal(capitalize(special) + " ").append(baseName).withStyle(ChatFormatting.WHITE);
+                }
             }
+        }
 
-            String special = tag.getString("special");
-
-            if (!special.isEmpty()) {
-                return Component.literal(capitalize(special) + " ").append(baseName).withStyle(ChatFormatting.WHITE);
-            }
+        int grind = getGrind(stack);
+        if (grind > 0) {
+            return Component.literal(baseName.getString() + " +" + grind);
         }
 
         return baseName;
