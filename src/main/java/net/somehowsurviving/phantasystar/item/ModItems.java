@@ -316,6 +316,10 @@ public class ModItems {
             () -> new MagItem(new Item.Properties(), 4.0f, 0.15f, 4.0f, 0.05f, 0.0f));
     public static final RegistryObject<Item> BANA_MAG = ITEMS.register("bana",
             () -> new MagItem(new Item.Properties(), 4.0f, 0.15f, 4.0f, 0.05f, 0.0f));
+    public static final RegistryObject<Item> GARUDA_MAG = ITEMS.register("garuda",
+            () -> new MagItem(new Item.Properties(), 4.0f, 0.15f, 4.0f, 0.05f, 0.0f));
+    public static final RegistryObject<Item> ILA_MAG = ITEMS.register("ila",
+            () -> new MagItem(new Item.Properties(), 4.0f, 0.15f, 4.0f, 0.05f, 0.0f));
     public static final RegistryObject<Item> VARAHA_MAG = ITEMS.register("varaha",
             () -> new MagItem(new Item.Properties(), 4.0f, 0.15f, 4.0f, 0.05f, 0.0f));
 

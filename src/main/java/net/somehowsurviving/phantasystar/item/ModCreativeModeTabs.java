@@ -130,6 +130,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.NAMUCI_MAG.get());
                         output.accept(ModItems.APSARAS_MAG.get());
                         output.accept(ModItems.BANA_MAG.get());
+                        output.accept(ModItems.GARUDA_MAG.get());
+                        output.accept(ModItems.ILA_MAG.get());
                         output.accept(ModItems.VARAHA_MAG.get());
                         // Mag Kits
                         output.accept(ModItems.VARUNA_KIT.get());

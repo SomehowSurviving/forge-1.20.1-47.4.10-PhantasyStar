@@ -16,6 +16,6 @@ public class MagKitItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents, TooltipFlag isAdvanced) {
-        tooltipComponents.add(Component.translatable(this.getDescriptionId() + "tooltip"));
+        tooltipComponents.add(Component.translatable(this.getDescriptionId() + ".tooltip"));
     }
 }

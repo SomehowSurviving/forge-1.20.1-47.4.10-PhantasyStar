@@ -9,6 +9,18 @@ public class ModTags {
 
     public static class Items {
 
+        public static final TagKey<Item> STAGE_1_MAGS = ItemTags.create(
+                new ResourceLocation("phantasystar", "stage_1_mag")
+        );
+        public static final TagKey<Item> STAGE_2_MAGS = ItemTags.create(
+                new ResourceLocation("phantasystar", "stage_2_mag")
+        );
+        public static final TagKey<Item> STAGE_3_MAGS = ItemTags.create(
+                new ResourceLocation("phantasystar", "stage_3_mag")
+        );
+        public static final TagKey<Item> STAGE_4_MAGS = ItemTags.create(
+                new ResourceLocation("phantasystar", "stage_4_mag")
+        );
         public static final TagKey<Item> ARREST_WEAPONS = ItemTags.create(
                 new ResourceLocation("phantasystar", "arrest_weapons")
         );

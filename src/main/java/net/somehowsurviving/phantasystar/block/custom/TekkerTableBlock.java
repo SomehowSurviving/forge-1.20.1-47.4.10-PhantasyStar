@@ -66,4 +66,8 @@ public class TekkerTableBlock extends Block {
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<net.minecraft.network.chat.Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        pTooltipComponents.add(Component.literal("Right click '???' items on this table to reveal their special attack."));
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+    }
 }
