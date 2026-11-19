@@ -1,0 +1,94 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    32,
+    32
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        17.5,
+        0,
+        0
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        17.5,
+        0,
+        0
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        -145.08,
+        -0.19,
+        175.53
+      ],
+      "translation": [
+        0.5,
+        0,
+        -0.5
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        -145.07999999999993,
+        -0.19000000000005457,
+        175.5300000000002
+      ],
+      "translation": [
+        0.5,
+        0,
+        -0.5
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.95,
+        0.95,
+        0.95
+      ]
+    },
+    "gui": {
+      "rotation": [
+        30.39,
+        45.58,
+        -22.67
+      ],
+      "translation": [
+        -2.25,
+        -1.25,
+        0
+      ]
+    },
+    "head": {
+      "translation": [
+        0,
+        -8.5,
+        10.5
+      ],
+      "scale": [
+        2.14,
+        2.14,
+        2.14
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0.75
+      ]
+    }
+  },
+  "textures": {
+    "particle": "phantasystar:item/kaitabha"
+  }
+}

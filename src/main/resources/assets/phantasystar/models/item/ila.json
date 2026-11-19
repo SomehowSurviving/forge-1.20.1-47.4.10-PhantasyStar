@@ -1,0 +1,117 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        67.5,
+        -180,
+        0
+      ],
+      "translation": [
+        0,
+        0.75,
+        -2.5
+      ],
+      "scale": [
+        0.97,
+        1.11,
+        1.11
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        67.5,
+        -180,
+        0
+      ],
+      "translation": [
+        0,
+        0.75,
+        -2.5
+      ],
+      "scale": [
+        0.97,
+        1.11,
+        1.11
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        -180,
+        -16,
+        -180
+      ],
+      "translation": [
+        2.5,
+        -2.25,
+        -1.25
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        -180,
+        -16,
+        -180
+      ],
+      "translation": [
+        2.5,
+        -2.25,
+        -1.25
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        -6,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.99,
+        0.85
+      ]
+    },
+    "head": {
+      "translation": [
+        0,
+        -12.5,
+        9.5
+      ],
+      "scale": [
+        2.12,
+        1.99,
+        2.01
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        -3.5,
+        0
+      ]
+    },
+    "on_shelf": {
+      "rotation": [
+        0,
+        180,
+        0
+      ]
+    }
+  },
+  "textures": {
+    "particle": "phantasystar:item/ila"
+  }
+}
